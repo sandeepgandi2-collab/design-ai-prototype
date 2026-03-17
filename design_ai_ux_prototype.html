@@ -3,183 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design AI — UX Prototype</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Design AI</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}body{background:#F7F6F3;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Inter,sans-serif;padding:24px;}#dai{width:100%;max-width:1080px;}.df{background:#fff;border-radius:20px;border:1px solid #EBEBEB;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 40px rgba(0,0,0,.06);}.dtop{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;border-bottom:1px solid #F0F0F0;flex-shrink:0;}.dlogo{font-size:11px;letter-spacing:.4em;color:#1A1A1A;font-weight:500;}.dsteps{display:flex;align-items:center;gap:8px;}.dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:1px solid #DCDCDC;color:#CCC;transition:all .3s;}.dot.a{border-color:#1A1A1A;color:#1A1A1A;}.dot.d{border-color:#1A1A1A;color:#fff;background:#1A1A1A;}.dline{width:32px;height:1px;background:#EBEBEB;}.dline.d{background:#1A1A1A;}.dexp{font-size:10px;letter-spacing:.12em;color:#1A1A1A;background:transparent;border:1px solid #1A1A1A;border-radius:6px;padding:6px 14px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}.dexp:hover{background:#1A1A1A;color:#fff;}.dbody{display:grid;grid-template-columns:320px 1fr;flex:1;}.dleft{border-right:1px solid #F0F0F0;padding:28px 24px;overflow-y:auto;background:#fff;min-height:500px;}.dright{background:#F7F6F3;display:flex;align-items:center;justify-content:center;padding:28px;min-height:500px;}.dbot{height:60px;border-top:1px solid #F0F0F0;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-shrink:0;}.dtitle{font-size:9px;letter-spacing:.25em;color:#CCC;margin:0 0 8px;}.dhead{font-size:22px;color:#1A1A1A;margin:0 0 6px;font-weight:400;font-family:Georgia,serif;}.ddesc{font-size:11px;color:#999;margin:0 0 24px;line-height:1.8;font-weight:300;}.dup{border:1px dashed #DCDCDC;border-radius:12px;padding:32px 20px;text-align:center;cursor:pointer;margin-bottom:16px;transition:all .2s;background:#FAFAFA;}.dup:hover{border-color:#1A1A1A;}.dupico{font-size:22px;color:#CCC;margin-bottom:8px;}.dopt{border:1px solid #EBEBEB;border-radius:10px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px;transition:all .2s;background:#fff;}.dopt:hover{border-color:#DCDCDC;background:#FAFAFA;}.dopt.sel{border-color:#1A1A1A;background:#FAFAFA;}.doptb{width:32px;height:32px;border-radius:8px;background:#F5F5F5;border:1px solid #EBEBEB;display:flex;align-items:center;justify-content:center;font-size:11px;color:#1A1A1A;flex-shrink:0;font-weight:500;}.dopt.sel .doptb{background:#1A1A1A;color:#fff;border-color:#1A1A1A;}.doptn{font-size:12px;color:#1A1A1A;margin-bottom:2px;font-weight:500;}.doptd{font-size:10px;color:#AAA;line-height:1.5;font-weight:300;}.doptc{margin-left:auto;color:#1A1A1A;font-size:13px;opacity:0;}.dopt.sel .doptc{opacity:1;}.dmoods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}.dmood{border:1px solid #EBEBEB;border-radius:10px;padding:12px;cursor:pointer;text-align:center;transition:all .2s;background:#fff;}.dmood:hover{border-color:#DCDCDC;}.dmood.sel{border-color:#1A1A1A;}.dmsw{height:30px;border-radius:6px;margin-bottom:8px;}.dmn{font-size:10px;color:#999;}.dmood.sel .dmn{color:#1A1A1A;font-weight:500;}.dbtn{font-size:10px;letter-spacing:.12em;color:#999;background:transparent;border:1px solid #DCDCDC;border-radius:7px;padding:8px 16px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}.dbtn:hover{border-color:#1A1A1A;color:#1A1A1A;}.dbtn.p{color:#fff;background:#1A1A1A;border-color:#1A1A1A;}.dbtn.p:hover{background:#333;}.dprog{font-size:9px;color:#CCC;letter-spacing:.2em;}.drow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #F5F5F5;}.dtag{padding:5px 12px;border:1px solid #EBEBEB;border-radius:20px;font-size:10px;color:#999;cursor:pointer;margin:3px;transition:all .2s;}.dtag.sel{border-color:#1A1A1A;color:#1A1A1A;}.dnote{padding:14px;border:1px solid #F0F0F0;border-radius:10px;background:#FAFAFA;margin-top:18px;}.dpvl{font-size:9px;letter-spacing:.2em;color:#CCC;margin-bottom:12px;text-align:right;}@media(max-width:700px){.dbody{grid-template-columns:1fr;}.dright{min-height:300px;}}
+*{box-sizing:border-box;margin:0;padding:0;}body{background:#F7F6F3;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Inter,sans-serif;padding:24px;}#dai{width:100%;max-width:1080px;}.df{background:#fff;border-radius:20px;border:1px solid #EBEBEB;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 40px rgba(0,0,0,.06);}.dtop{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;border-bottom:1px solid #F0F0F0;flex-shrink:0;}.dlogo{font-size:11px;letter-spacing:.4em;color:#1A1A1A;font-weight:500;}.dsteps{display:flex;align-items:center;gap:8px;}.dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:1px solid #DCDCDC;color:#CCC;transition:all .3s;}.dot.a{border-color:#1A1A1A;color:#1A1A1A;}.dot.d{border-color:#1A1A1A;color:#fff;background:#1A1A1A;}.dline{width:32px;height:1px;background:#EBEBEB;}.dline.d{background:#1A1A1A;}.dexp{font-size:10px;letter-spacing:.12em;color:#1A1A1A;background:transparent;border:1px solid #1A1A1A;border-radius:6px;padding:6px 14px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}.dexp:hover{background:#1A1A1A;color:#fff;}.dbody{display:grid;grid-template-columns:320px 1fr;flex:1;}.dleft{border-right:1px solid #F0F0F0;padding:28px 24px;overflow-y:auto;background:#fff;min-height:500px;}.dright{background:#F7F6F3;display:flex;align-items:center;justify-content:center;padding:28px;min-height:500px;}.dbot{height:60px;border-top:1px solid #F0F0F0;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-shrink:0;}.dtl{font-size:9px;letter-spacing:.25em;color:#CCC;margin:0 0 8px;}.dhd{font-size:22px;color:#1A1A1A;margin:0 0 6px;font-weight:400;font-family:Georgia,serif;}.dds{font-size:11px;color:#999;margin:0 0 24px;line-height:1.8;font-weight:300;}.dup{border:1px dashed #DCDCDC;border-radius:12px;padding:32px 20px;text-align:center;cursor:pointer;margin-bottom:16px;transition:all .2s;background:#FAFAFA;}.dup:hover{border-color:#1A1A1A;}.dupico{font-size:22px;color:#CCC;margin-bottom:8px;}.dopt{border:1px solid #EBEBEB;border-radius:10px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px;transition:all .2s;background:#fff;}.dopt:hover{border-color:#DCDCDC;background:#FAFAFA;}.dopt.sel{border-color:#1A1A1A;background:#FAFAFA;}.dob{width:32px;height:32px;border-radius:8px;background:#F5F5F5;border:1px solid #EBEBEB;display:flex;align-items:center;justify-content:center;font-size:11px;color:#1A1A1A;flex-shrink:0;font-weight:500;}.dopt.sel .dob{background:#1A1A1A;color:#fff;border-color:#1A1A1A;}.don{font-size:12px;color:#1A1A1A;margin-bottom:2px;font-weight:500;}.dod{font-size:10px;color:#AAA;line-height:1.5;font-weight:300;}.doc{margin-left:auto;color:#1A1A1A;font-size:13px;opacity:0;}.dopt.sel .doc{opacity:1;}.dmoods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}.dmood{border:1px solid #EBEBEB;border-radius:10px;padding:12px;cursor:pointer;text-align:center;transition:all .2s;background:#fff;}.dmood:hover{border-color:#DCDCDC;}.dmood.sel{border-color:#1A1A1A;}.dmsw{height:30px;border-radius:6px;margin-bottom:8px;}.dmn{font-size:10px;color:#999;}.dmood.sel .dmn{color:#1A1A1A;font-weight:500;}.dbtn{font-size:10px;letter-spacing:.12em;color:#999;background:transparent;border:1px solid #DCDCDC;border-radius:7px;padding:8px 16px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}.dbtn:hover{border-color:#1A1A1A;color:#1A1A1A;}.dbtn.p{color:#fff;background:#1A1A1A;border-color:#1A1A1A;}.dbtn.p:hover{background:#333;}.dpg{font-size:9px;color:#CCC;letter-spacing:.2em;}.drow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #F5F5F5;}.dtag{padding:5px 12px;border:1px solid #EBEBEB;border-radius:20px;font-size:10px;color:#999;cursor:pointer;margin:3px;transition:all .2s;}.dtag.sel{border-color:#1A1A1A;color:#1A1A1A;}.dnote{padding:14px;border:1px solid #F0F0F0;border-radius:10px;background:#FAFAFA;margin-top:18px;}.dpvl{font-size:9px;letter-spacing:.2em;color:#CCC;margin-bottom:12px;text-align:right;}@media(max-width:700px){.dbody{grid-template-columns:1fr;}.dright{min-height:300px;}}
 </style>
 </head>
 <body>
 <div id="dai"><div class="df">
-<div class="dtop"><div class="dlogo">DESIGN · AI</div><div class="dsteps" id="dsteps"></div><button class="dexp">BOOK AN EXPERT</button></div>
+<div class="dtop"><div class="dlogo">DESIGN &middot; AI</div><div class="dsteps" id="dsteps"></div><button class="dexp">BOOK AN EXPERT</button></div>
 <div class="dbody"><div class="dleft" id="dleft"></div><div class="dright"><div style="width:100%;max-width:520px;" id="dright"></div></div></div>
-<div class="dbot"><button class="dbtn" id="dprev" onclick="gostep(-1)">← BACK</button><div class="dprog" id="dprog">STEP 1 OF 4</div><button class="dbtn p" id="dnext" onclick="gostep(1)">CONTINUE →</button></div>
+<div class="dbot"><button class="dbtn" id="dprev" onclick="go(-1)">&larr; BACK</button><div class="dpg" id="dpg">STEP 1 OF 4</div><button class="dbtn p" id="dnext" onclick="go(1)">CONTINUE &rarr;</button></div>
 </div></div>
 <script>
 var cs=0,sl=0,sm=2,sr=0;
-var layouts=[["Vastu Aligned","South-west master, north pooja, optimal energy flow"],["Open Concept","Maximised space, seamless flow between living areas"],["Zoned Living","Defined activity zones, clear traffic paths, ergonomic spacing"]];
-var moods=[["Modern","#2C2C3E"],["Minimal","#E8E4DC"],["Warm","#C4956A"],["Natural","#7A9E7E"],["Luxury","#8B7355"],["Coastal","#7BA7BC"]];
-var rooms=["Living Room","Bedroom","Dining","Kitchen"];
-var notes=["Optimal energy flow for south-facing home. Sofa axis aligned with dominant light source.","Creates visual depth and enhances perceived room volume.","Defined zones reduce visual clutter and improve daily function."];
-function mk(tag,cls,txt,sty){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;if(sty)e.style.cssText=sty;return e;}
-function rendsteps(){
-  var c=document.getElementById("dsteps");c.innerHTML="";
-  ["UPLOAD","LAYOUT","MOOD","DESIGN"].forEach(function(l,i){
-    var d=mk("div","dot "+(i<cs?"d":i===cs?"a":""),i<cs?"✓":""+(i+1));c.appendChild(d);
-    if(i<3){var ln=mk("div","dline "+(i<cs?"d":""));c.appendChild(ln);}
+var LA=[['Vastu Aligned','South-west master, north pooja, optimal energy flow'],['Open Concept','Maximised space, seamless flow between living areas'],['Zoned Living','Defined activity zones, clear traffic paths, ergonomic spacing']];
+var MO=[['Modern','#2C2C3E'],['Minimal','#E8E4DC'],['Warm','#C4956A'],['Natural','#7A9E7E'],['Luxury','#8B7355'],['Coastal','#7BA7BC']];
+var RO=['Living Room','Bedroom','Dining','Kitchen'];
+var NO=['Optimal energy flow for south-facing home. Sofa axis aligned with dominant light source.','Creates visual depth and enhances perceived room volume.','Defined zones reduce visual clutter and improve daily function.'];
+function mk(t,c,tx,s){var e=document.createElement(t);if(c)e.className=c;if(tx)e.textContent=tx;if(s)e.style.cssText=s;return e;}
+function mks(t,a){var ns='http://www.w3.org/2000/svg';var e=document.createElementNS(ns,t);if(a){for(var k in a)e.setAttribute(k,a[k]);}return e;}
+function ap(p,c){p.appendChild(c);return c;}
+function rend(){
+  var S=document.getElementById('dsteps');S.innerHTML='';
+  ['1','2','3','4'].forEach(function(n,i){
+    var d=mk('div','dot'+(i<cs?' d':i===cs?' a':''),i<cs?'\u2713':n);
+    ap(S,d);
+    if(i<3)ap(S,mk('div','dline'+(i<cs?' d':'')));
   });
 }
-function rendleft(){
-  var el=document.getElementById("dleft");el.innerHTML="";
+function rl(){
+  var L=document.getElementById('dleft');L.innerHTML='';
   if(cs===0){
-    el.appendChild(mk("div","dtitle","STEP 01 — UPLOAD"));
-    el.appendChild(mk("div","dhead","Your Floor Plan"));
-    el.appendChild(mk("div","ddesc","Upload your floor plan or sketch. AI reads dimensions, identifies rooms, and maps spatial logic before any design begins."));
-    var up=mk("div","dup");up.innerHTML='<div class="dupico">⌗</div><div style="font-size:12px;color:#AAA;font-weight:300;">Drop floor plan here<br>or click to upload</div><div style="font-size:10px;color:#DCDCDC;margin-top:6px;font-weight:300;">PDF · PNG · JPG · DWG</div>';up.onclick=function(){gostep(1);};el.appendChild(up);
-    el.appendChild(mk("div","dtitle","WHAT WE DETECT","margin:18px 0 10px;"));
-    ["Room dimensions & proportions","Vastu directions & orientation","Natural light entry points","Structural walls & openings"].forEach(function(t){
-      var row=mk("div","","","display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid #F5F5F5;");
-      var dot=mk("div","","","width:4px;height:4px;border-radius:50%;background:#CCC;flex-shrink:0;");
-      var sp=mk("span","",t,"font-size:11px;color:#AAA;font-weight:300;");
-      row.appendChild(dot);row.appendChild(sp);el.appendChild(row);
+    ap(L,mk('div','dtl','STEP 01'));
+    ap(L,mk('div','dhd','Your Floor Plan'));
+    ap(L,mk('div','dds','Upload your floor plan. AI reads dimensions, identifies rooms and maps spatial logic.'));
+    var u=mk('div','dup');u.innerHTML='<div class="dupico">&#8983;</div><div style="font-size:12px;color:#AAA;font-weight:300;">Drop floor plan here or click to upload</div><div style="font-size:10px;color:#DDD;margin-top:6px;">PDF &middot; PNG &middot; JPG &middot; DWG</div>';u.onclick=function(){go(1);};ap(L,u);
+    ap(L,mk('div','dtl','WHAT WE DETECT','margin:18px 0 10px;'));
+    ['Room dimensions & proportions','Vastu directions & orientation','Natural light entry points','Structural walls & openings'].forEach(function(t){
+      var r=mk('div','','','display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid #F5F5F5;');
+      ap(r,mk('div','','','width:4px;height:4px;border-radius:50%;background:#CCC;flex-shrink:0;'));
+      ap(r,mk('span','',t,'font-size:11px;color:#AAA;font-weight:300;'));
+      ap(L,r);
     });
   } else if(cs===1){
-    el.appendChild(mk("div","dtitle","STEP 02 — LAYOUT"));
-    el.appendChild(mk("div","dhead","Choose Your Layout"));
-    el.appendChild(mk("div","ddesc","Three arrangements generated for your space. Each follows Vastu, ergonomic standards, and optimal flow."));
-    layouts.forEach(function(l,i){
-      var opt=mk("div","dopt "+(sl===i?"sel":""));
-      opt.onclick=(function(idx){return function(){sellay(idx);};})(i);
-      var badge=mk("div","doptb",String.fromCharCode(65+i));
-      var info=mk("div");var nm=mk("div","doptn",l[0]);var desc=mk("div","doptd",l[1]);
-      info.appendChild(nm);info.appendChild(desc);
-      var chk=mk("div","doptc","✓");
-      opt.appendChild(badge);opt.appendChild(info);opt.appendChild(chk);el.appendChild(opt);
+    ap(L,mk('div','dtl','STEP 02'));
+    ap(L,mk('div','dhd','Choose Your Layout'));
+    ap(L,mk('div','dds','Three arrangements generated. Each follows Vastu, ergonomic standards and optimal flow.'));
+    LA.forEach(function(l,i){
+      var o=mk('div','dopt'+(sl===i?' sel':''));
+      o.onclick=(function(x){return function(){sl=x;rl();rr();};})(i);
+      var b=mk('div','dob',String.fromCharCode(65+i));
+      var inf=mk('div');
+      ap(inf,mk('div','don',l[0]));
+      ap(inf,mk('div','dod',l[1]));
+      ap(o,b);ap(o,inf);ap(o,mk('div','doc','\u2713'));
+      ap(L,o);
     });
-    var note=mk("div","dnote");
-    note.innerHTML='<div style="font-size:9px;color:#CCC;letter-spacing:.2em;margin-bottom:8px;">ARCHITECT'S NOTE</div><div style="font-size:11px;color:#AAA;line-height:1.8;font-style:italic;font-weight:300;">'+notes[sl]+"</div>";
-    el.appendChild(note);
+    var nt=mk('div','dnote');
+    ap(nt,mk('div','dtl','ARCHITECT NOTE','margin-bottom:8px;'));
+    ap(nt,mk('div','',NO[sl],'font-size:11px;color:#AAA;line-height:1.8;font-style:italic;font-weight:300;'));
+    ap(L,nt);
   } else if(cs===2){
-    el.appendChild(mk("div","dtitle","STEP 03 — MOOD"));
-    el.appendChild(mk("div","dhead","Select Your Aesthetic"));
-    el.appendChild(mk("div","ddesc","Define the material palette and lighting tone applied across all rooms."));
-    var mg=mk("div","dmoods");
-    moods.forEach(function(m,i){
-      var md=mk("div","dmood "+(sm===i?"sel":""));
-      md.onclick=(function(idx){return function(){selmood(idx);};})(i);
-      var sw=mk("div","dmsw","","background:"+m[1]+";");
-      var nm=mk("div","dmn",m[0]);
-      md.appendChild(sw);md.appendChild(nm);mg.appendChild(md);
+    ap(L,mk('div','dtl','STEP 03'));
+    ap(L,mk('div','dhd','Select Your Aesthetic'));
+    ap(L,mk('div','dds','Define material palette and lighting tone applied across all rooms.'));
+    var mg=mk('div','dmoods');
+    MO.forEach(function(m,i){
+      var d=mk('div','dmood'+(sm===i?' sel':''));
+      d.onclick=(function(x){return function(){sm=x;rl();rr();};})(i);
+      ap(d,mk('div','dmsw','','background:'+m[1]+';'));
+      ap(d,mk('div','dmn',m[0]));
+      ap(mg,d);
     });
-    el.appendChild(mg);
-    el.appendChild(mk("div","dtitle","PALETTE","margin-bottom:10px;"));
-    var pal=mk("div","","","display:flex;gap:6px;margin-bottom:18px;");
-    [moods[sm][1],"#F5F3EF","#1A1A1A","#DCDCDC","#FFF"].forEach(function(c){pal.appendChild(mk("div","","","flex:1;height:28px;border-radius:6px;background:"+c+";border:1px solid #EBEBEB;"));});
-    el.appendChild(pal);
-    el.appendChild(mk("div","dtitle","MATERIALS","margin-bottom:10px;"));
-    ["Honed limestone","Brushed brass","Raw linen","White oak"].forEach(function(m){el.appendChild(mk("div","",m,"font-size:11px;color:#AAA;padding:6px 0;border-bottom:1px solid #F5F5F5;font-weight:300;"));});
+    ap(L,mg);
+    ap(L,mk('div','dtl','PALETTE','margin-bottom:10px;'));
+    var pl=mk('div','','','display:flex;gap:6px;margin-bottom:18px;');
+    [MO[sm][1],'#F5F3EF','#1A1A1A','#DDD','#FFF'].forEach(function(c){ap(pl,mk('div','','','flex:1;height:28px;border-radius:6px;background:'+c+';border:1px solid #EBEBEB;'));});
+    ap(L,pl);
+    ap(L,mk('div','dtl','MATERIALS','margin-bottom:10px;'));
+    ['Honed limestone','Brushed brass','Raw linen','White oak'].forEach(function(m){
+      ap(L,mk('div','',m,'font-size:11px;color:#AAA;padding:6px 0;border-bottom:1px solid #F5F5F5;font-weight:300;'));
+    });
   } else {
-    el.appendChild(mk("div","dtitle","STEP 04 — DESIGN"));
-    el.appendChild(mk("div","dhead","Your Spaces, Designed"));
-    el.appendChild(mk("div","ddesc","AI-generated renders for each room, following your layout and mood selections."));
-    el.appendChild(mk("div","dtitle","SELECT ROOM","margin-bottom:10px;"));
-    var rw=mk("div","","","display:flex;flex-wrap:wrap;margin-bottom:20px;");
-    rooms.forEach(function(r,i){
-      var tg=mk("div","dtag "+(sr===i?"sel":""),r);
-      tg.onclick=(function(idx){return function(){selroom(idx);};})(i);
-      rw.appendChild(tg);
+    ap(L,mk('div','dtl','STEP 04'));
+    ap(L,mk('div','dhd','Your Spaces, Designed'));
+    ap(L,mk('div','dds','AI-generated renders for each room, following your layout and mood.'));
+    ap(L,mk('div','dtl','SELECT ROOM','margin-bottom:10px;'));
+    var rw=mk('div','','','display:flex;flex-wrap:wrap;margin-bottom:20px;');
+    RO.forEach(function(r,i){
+      var t=mk('div','dtag'+(sr===i?' sel':''),r);
+      t.onclick=(function(x){return function(){sr=x;rl();rr();};})(i);
+      ap(rw,t);
     });
-    el.appendChild(rw);
-    var specs=mk("div","","","padding:14px;background:#FAFAFA;border-radius:10px;border:1px solid #F0F0F0;margin-bottom:16px;");
-    specs.appendChild(mk("div","dtitle","DESIGN SPECS","margin-bottom:10px;"));
-    [["Style",moods[sm][0]],["Layout",layouts[sl][0]],["Renders","2 per room"],["Format","4K Photorealistic"]].forEach(function(r){
-      var row=mk("div","drow");
-      row.appendChild(mk("span","",r[0],"font-size:11px;color:#AAA;font-weight:300;"));
-      row.appendChild(mk("span","",r[1],"font-size:11px;color:#1A1A1A;font-weight:500;"));
-      specs.appendChild(row);
+    ap(L,rw);
+    var sp=mk('div','','','padding:14px;background:#FAFAFA;border-radius:10px;border:1px solid #F0F0F0;margin-bottom:16px;');
+    ap(sp,mk('div','dtl','DESIGN SPECS','margin-bottom:10px;'));
+    [['Style',MO[sm][0]],['Layout',LA[sl][0]],['Renders','2 per room'],['Format','4K Photorealistic']].forEach(function(r){
+      var row=mk('div','drow');
+      ap(row,mk('span','',r[0],'font-size:11px;color:#AAA;font-weight:300;'));
+      ap(row,mk('span','',r[1],'font-size:11px;color:#1A1A1A;font-weight:500;'));
+      ap(sp,row);
     });
-    el.appendChild(specs);
-    var cta=mk("div","","","padding:16px;border:1px solid #EBEBEB;border-radius:10px;");
-    cta.appendChild(mk("div","dtitle","READY TO BUILD?","margin-bottom:6px;"));
-    cta.appendChild(mk("div","","Connect with our architect for a personalised consultation.","font-size:11px;color:#AAA;line-height:1.8;margin-bottom:12px;font-weight:300;"));
-    var btn=mk("button","","→ BOOK AN EXPERT","width:100%;padding:10px;background:#1A1A1A;border:none;border-radius:7px;font-size:10px;letter-spacing:.15em;color:#fff;cursor:pointer;font-family:Inter,sans-serif;");
-    cta.appendChild(btn);el.appendChild(cta);
+    ap(L,sp);
+    var ct=mk('div','','','padding:16px;border:1px solid #EBEBEB;border-radius:10px;');
+    ap(ct,mk('div','dtl','READY TO BUILD?','margin-bottom:6px;'));
+    ap(ct,mk('div','','Connect with our architect for a personalised consultation.','font-size:11px;color:#AAA;line-height:1.8;margin-bottom:12px;font-weight:300;'));
+    var btn=mk('button','','BOOK AN EXPERT','width:100%;padding:10px;background:#1A1A1A;border:none;border-radius:7px;font-size:10px;letter-spacing:.15em;color:#fff;cursor:pointer;font-family:Inter,sans-serif;');
+    ap(ct,btn);
+    ap(L,ct);
   }
 }
-function rendright(){
-  var el=document.getElementById("dright");el.innerHTML="";
-  var pvl=mk("div","dpvl","");el.appendChild(pvl);
+function svgElem(tag,attrs){
+  var e=document.createElementNS('http://www.w3.org/2000/svg',tag);
+  for(var k in attrs)e.setAttribute(k,attrs[k]);
+  return e;
+}
+function rr(){
+  var R=document.getElementById('dright');R.innerHTML='';
+  var pv=mk('div','dpvl');
+  ap(R,pv);
   if(cs===0){
-    pvl.textContent="FLOOR PLAN ANALYSIS";
-    var svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
-    svg.setAttribute("viewBox","0 0 480 320");
-    svg.style.cssText="width:100%;border-radius:12px;border:1px solid #EBEBEB;background:#fff;";
-    svg.innerHTML='<defs/>';
-    function addRect(x,y,w,h,fill,stroke){var r=document.createElementNS("http://www.w3.org/2000/svg","rect");r.setAttribute("x",x);r.setAttribute("y",y);r.setAttribute("width",w);r.setAttribute("height",h);r.setAttribute("fill",fill);r.setAttribute("stroke",stroke);r.setAttribute("stroke-width","1");svg.appendChild(r);}
-    function addTxt(x,y,txt,col,sz){var t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("x",x);t.setAttribute("y",y);t.setAttribute("fill",col||"#CCC");t.setAttribute("font-size",sz||"10");t.setAttribute("text-anchor","middle");t.setAttribute("font-family","Inter");t.setAttribute("letter-spacing","2");t.textContent=txt;svg.appendChild(t);}
-    for(var i=0;i<9;i++){var l=document.createElementNS("http://www.w3.org/2000/svg","line");l.setAttribute("x1",52+i*44);l.setAttribute("y1",28);l.setAttribute("x2",52+i*44);l.setAttribute("y2",292);l.setAttribute("stroke","#F5F5F5");l.setAttribute("stroke-width","1");svg.appendChild(l);}
-    for(var i=0;i<7;i++){var l=document.createElementNS("http://www.w3.org/2000/svg","line");l.setAttribute("x1",52);l.setAttribute("y1",28+i*44);l.setAttribute("x2",428);l.setAttribute("y2",28+i*44);l.setAttribute("stroke","#F5F5F5");l.setAttribute("stroke-width","1");svg.appendChild(l);}
-    addRect(64,38,352,252,"none","#E0E0E0");
-    addRect(64,38,210,155,"#FAFAFA","#EBEBEB");addTxt(169,112,"LIVING ROOM");addTxt(169,126,"14' x 12'","#DCDCDC","9");
-    addRect(64,193,210,97,"#F8F8F8","#EBEBEB");addTxt(169,242,"BEDROOM");
-    addRect(274,38,142,115,"#F5F8F5","#EBEBEB");addTxt(345,96,"DINING");
-    addRect(274,153,142,77,"#FAFAFA","#EBEBEB");addTxt(345,193,"KITCHEN");
-    addRect(274,230,85,60,"#F8F8F8","#EBEBEB");addTxt(316,262,"BATH","#CCC","9");
-    addTxt(446,50,"N","#1A1A1A","12");
-    var scanLine=document.createElementNS("http://www.w3.org/2000/svg","line");scanLine.setAttribute("x1",64);scanLine.setAttribute("y1",88);scanLine.setAttribute("x2",416);scanLine.setAttribute("y2",88);scanLine.setAttribute("stroke","#C4956A");scanLine.setAttribute("stroke-width","0.5");scanLine.setAttribute("opacity","0.4");svg.appendChild(scanLine);
-    var scanTxt=document.createElementNS("http://www.w3.org/2000/svg","text");scanTxt.setAttribute("x",412);scanTxt.setAttribute("y",85);scanTxt.setAttribute("fill","#C4956A");scanTxt.setAttribute("font-size","8");scanTxt.setAttribute("text-anchor","end");scanTxt.setAttribute("font-family","Inter");scanTxt.setAttribute("opacity","0.7");scanTxt.textContent="SCANNING...";svg.appendChild(scanTxt);
-    addTxt(240,315,"24 ft","#CCC","9");
-    el.appendChild(svg);
+    pv.textContent='FLOOR PLAN ANALYSIS';
+    var svg=svgElem('svg',{viewBox:'0 0 480 320'});
+    svg.style.cssText='width:100%;border-radius:12px;border:1px solid #EBEBEB;background:#fff;';
+    for(var i=0;i<9;i++){var l=svgElem('line',{x1:52+i*44,y1:28,x2:52+i*44,y2:292,stroke:'#F5F5F5'});svg.appendChild(l);}
+    for(var i=0;i<7;i++){var l=svgElem('line',{x1:52,y1:28+i*44,x2:428,y2:28+i*44,stroke:'#F5F5F5'});svg.appendChild(l);}
+    svg.appendChild(svgElem('rect',{x:64,y:38,width:352,height:252,fill:'none',stroke:'#E0E0E0','stroke-width':'1.5'}));
+    function room(x,y,w,h,f,lb,lb2){
+      svg.appendChild(svgElem('rect',{x:x,y:y,width:w,height:h,fill:f,stroke:'#EBEBEB'}));
+      var t=svgElem('text',{x:x+w/2,y:y+h/2,fill:'#CCC','font-size':'10','text-anchor':'middle','font-family':'Inter','letter-spacing':'2'});
+      t.textContent=lb;svg.appendChild(t);
+      if(lb2){var t2=svgElem('text',{x:x+w/2,y:y+h/2+14,fill:'#DDD','font-size':'9','text-anchor':'middle','font-family':'Inter'});t2.textContent=lb2;svg.appendChild(t2);}
+    }
+    room(64,38,210,155,'#FAFAFA','LIVING ROOM','14ft x 12ft');
+    room(64,193,210,97,'#F8F8F8','BEDROOM');
+    room(274,38,142,115,'#F5F8F5','DINING');
+    room(274,153,142,77,'#FAFAFA','KITCHEN');
+    room(274,230,85,60,'#F8F8F8','BATH');
+    var scan=svgElem('line',{x1:64,y1:88,x2:416,y2:88,stroke:'#C4956A','stroke-width':'0.5',opacity:'0.4'});svg.appendChild(scan);
+    var st=svgElem('text',{x:412,y:85,fill:'#C4956A','font-size':'8','text-anchor':'end','font-family':'Inter',opacity:'0.7'});st.textContent='SCANNING...';svg.appendChild(st);
+    ap(R,svg);
   } else if(cs===1){
-    pvl.textContent="LAYOUT OPTION "+String.fromCharCode(65+sl);
-    var svgHtml=[
-      '<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/><rect x="76" y="148" width="128" height="52" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="76" y="140" width="128" height="16" rx="4" fill="#EBEBEB" stroke="#E0E0E0" stroke-width="0.5"/><text x="140" y="178" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">SOFA</text><rect x="92" y="208" width="84" height="38" rx="4" fill="#F8F8F8" stroke="#E0E0E0" stroke-width="0.5"/><rect x="76" y="44" width="158" height="22" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><text x="155" y="59" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">TV UNIT</text><rect x="220" y="152" width="42" height="42" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="272" y="152" width="42" height="42" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="318" y="44" width="86" height="88" rx="4" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><circle cx="361" cy="88" r="26" fill="none" stroke="#E0E8E0" stroke-width="0.5"/><text x="361" y="92" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">DINING</text><text x="240" y="290" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">VASTU ALIGNED</text></svg>',
-      '<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/><rect x="76" y="168" width="168" height="52" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="228" y="132" width="52" height="88" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="298" y="152" width="106" height="62" rx="4" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><text x="351" y="188" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">ISLAND</text><circle cx="308" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><circle cx="336" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><circle cx="364" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><text x="240" y="290" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">OPEN CONCEPT</text></svg>',
-      '<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/><line x1="240" y1="32" x2="240" y2="268" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="4,4"/><text x="148" y="52" fill="#DDD" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="2">LOUNGE</text><text x="352" y="52" fill="#DDD" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="2">DINING</text><rect x="68" y="88" width="144" height="52" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="68" y="150" width="52" height="80" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="160" y="150" width="52" height="80" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="262" y="68" width="114" height="188" rx="6" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><circle cx="290" cy="106" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="350" cy="106" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="290" cy="158" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="350" cy="158" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><text x="240" y="290" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">ZONED LIVING</text></svg>'
-    ];
-    var wrap=mk("div","","","border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;");
-    wrap.innerHTML=svgHtml[sl];el.appendChild(wrap);
+    pv.textContent='LAYOUT OPTION '+String.fromCharCode(65+sl);
+    var wrap=mk('div','','','border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;');
+    var svg=svgElem('svg',{viewBox:'0 0 480 300'});
+    svg.style.width='100%';
+    svg.appendChild(svgElem('rect',{x:56,y:32,width:368,height:236,fill:'#fff',stroke:'#E8E8E8','stroke-width':'1.5'}));
+    if(sl===0){
+      svg.appendChild(svgElem('rect',{x:76,y:140,width:128,height:16,rx:4,fill:'#EBEBEB',stroke:'#E0E0E0','stroke-width':'0.5'}));
+      svg.appendChild(svgElem('rect',{x:76,y:148,width:128,height:52,rx:6,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:92,y:208,width:84,height:38,rx:4,fill:'#F8F8F8',stroke:'#E0E0E0','stroke-width':'0.5'}));
+      svg.appendChild(svgElem('rect',{x:76,y:44,width:158,height:22,rx:4,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      var lt=svgElem('text',{x:155,y:59,fill:'#CCC','font-size':'9','text-anchor':'middle','font-family':'Inter'});lt.textContent='TV UNIT';svg.appendChild(lt);
+      var ls=svgElem('text',{x:140,y:178,fill:'#CCC','font-size':'9','text-anchor':'middle','font-family':'Inter'});ls.textContent='SOFA';svg.appendChild(ls);
+      svg.appendChild(svgElem('rect',{x:220,y:152,width:42,height:42,rx:4,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:272,y:152,width:42,height:42,rx:4,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:318,y:44,width:86,height:88,rx:4,fill:'#F0F5F0',stroke:'#E0E8E0'}));
+      svg.appendChild(svgElem('circle',{cx:361,cy:88,r:26,fill:'none',stroke:'#E0E8E0','stroke-width':'0.5'}));
+      var lbl=svgElem('text',{x:240,y:290,fill:'#CCC','font-size':'9','text-anchor':'middle','font-family':'Inter','letter-spacing':'3'});lbl.textContent='VASTU ALIGNED';svg.appendChild(lbl);
+    } else if(sl===1){
+      svg.appendChild(svgElem('rect',{x:76,y:168,width:168,height:52,rx:6,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:228,y:132,width:52,height:88,rx:6,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:298,y:152,width:106,height:62,rx:4,fill:'#F0F5F0',stroke:'#E0E8E0'}));
+      [308,336,364].forEach(function(cx){svg.appendChild(svgElem('circle',{cx:cx,cy:148,r:8,fill:'#F5F5F5',stroke:'#E0E0E0','stroke-width':'0.5'}));});
+      var lbl=svgElem('text',{x:240,y:290,fill:'#CCC','font-size':'9','text-anchor':'middle','font-family':'Inter','letter-spacing':'3'});lbl.textContent='OPEN CONCEPT';svg.appendChild(lbl);
+    } else {
+      var ln=svgElem('line',{x1:240,y1:32,x2:240,y2:268,stroke:'#F0F0F0','stroke-dasharray':'4,4'});svg.appendChild(ln);
+      svg.appendChild(svgElem('rect',{x:68,y:88,width:144,height:52,rx:4,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:68,y:150,width:52,height:80,rx:4,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:160,y:150,width:52,height:80,rx:4,fill:'#F5F5F5',stroke:'#E0E0E0'}));
+      svg.appendChild(svgElem('rect',{x:262,y:68,width:114,height:188,rx:6,fill:'#F0F5F0',stroke:'#E0E8E0'}));
+      [[290,106],[350,106],[290,158],[350,158]].forEach(function(p){svg.appendChild(svgElem('circle',{cx:p[0],cy:p[1],r:12,fill:'#fff',stroke:'#E0E8E0','stroke-width':'0.5'}));});
+      var lbl=svgElem('text',{x:240,y:290,fill:'#CCC','font-size':'9','text-anchor':'middle','font-family':'Inter','letter-spacing':'3'});lbl.textContent='ZONED LIVING';svg.appendChild(lbl);
+    }
+    wrap.appendChild(svg);ap(R,wrap);
   } else if(cs===2){
-    var m=moods[sm];pvl.textContent="MOOD BOARD — "+m[0].toUpperCase();
-    var card=mk("div","","","border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;");
-    var swatch=mk("div","","","height:140px;background:"+m[1]+";");card.appendChild(swatch);
-    var body=mk("div","","","padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px;");
-    var col1=mk("div");col1.appendChild(mk("div","dtitle","MATERIALS","margin-bottom:10px;"));
-    ["Honed limestone","Brushed brass","Raw linen","White oak"].forEach(function(t){col1.appendChild(mk("div","",t,"font-size:10px;color:#AAA;padding:5px 0;border-bottom:1px solid #F5F5F5;font-weight:300;"));});
-    var col2=mk("div");col2.appendChild(mk("div","dtitle","PALETTE","margin-bottom:10px;"));
-    var pal=mk("div","","","display:flex;gap:4px;margin-bottom:12px;");
-    [m[1],"#F5F3EF","#1A1A1A","#DCDCDC"].forEach(function(c){pal.appendChild(mk("div","","","flex:1;height:24px;border-radius:4px;background:"+c+";border:1px solid #EBEBEB;"));});
-    col2.appendChild(pal);
-    col2.appendChild(mk("div","dtitle","LIGHTING","margin-bottom:8px;"));
-    col2.appendChild(mk("div","","Warm 2700K ambient","font-size:10px;color:#AAA;padding:3px 0;font-weight:300;"));
-    col2.appendChild(mk("div","","Accent task spots","font-size:10px;color:#AAA;padding:3px 0;font-weight:300;"));
-    body.appendChild(col1);body.appendChild(col2);card.appendChild(body);el.appendChild(card);
+    pv.textContent='MOOD BOARD — '+MO[sm][0].toUpperCase();
+    var card=mk('div','','','border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;');
+    ap(card,mk('div','','','height:140px;background:'+MO[sm][1]+';'));
+    var body=mk('div','','','padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px;');
+    var c1=mk('div');
+    ap(c1,mk('div','dtl','MATERIALS','margin-bottom:10px;'));
+    ['Honed limestone','Brushed brass','Raw linen','White oak'].forEach(function(t){ap(c1,mk('div','',t,'font-size:10px;color:#AAA;padding:5px 0;border-bottom:1px solid #F5F5F5;font-weight:300;'));});
+    var c2=mk('div');
+    ap(c2,mk('div','dtl','PALETTE','margin-bottom:10px;'));
+    var pl=mk('div','','','display:flex;gap:4px;margin-bottom:12px;');
+    [MO[sm][1],'#F5F3EF','#1A1A1A','#DDD'].forEach(function(c){ap(pl,mk('div','','','flex:1;height:24px;border-radius:4px;background:'+c+';border:1px solid #EBEBEB;'));});
+    ap(c2,pl);
+    ap(c2,mk('div','dtl','LIGHTING','margin-bottom:8px;'));
+    ap(c2,mk('div','','Warm 2700K ambient','font-size:10px;color:#AAA;padding:3px 0;font-weight:300;'));
+    ap(c2,mk('div','','Accent task spots','font-size:10px;color:#AAA;padding:3px 0;font-weight:300;'));
+    ap(body,c1);ap(body,c2);ap(card,body);ap(R,card);
   } else {
-    var rsn=rooms[sr];pvl.textContent=rsn.toUpperCase()+" — "+moods[sm][0].toUpperCase();
-    var card=mk("div","","","border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;padding:20px;");
-    card.innerHTML='<svg viewBox="0 0 460 280" style="width:100%;"><polygon points="230,35 400,128 230,222 60,128" fill="#F8F8F8" stroke="#E8E8E8" stroke-width="1.5"/><polygon points="60,35 230,35 230,222 60,128" fill="#F2F2F2" stroke="#E8E8E8" stroke-width="1"/><line x1="60" y1="35" x2="230" y2="35" stroke="#E0E0E0" stroke-width="1"/><polygon points="96,155 175,111 194,121 114,165" fill="#E8E8E8" stroke="#DDD" stroke-width="0.5"/><polygon points="96,145 175,101 175,111 96,155" fill="#EBEBEB" stroke="#DDD" stroke-width="0.5"/><line x1="228" y1="216" x2="228" y2="90" stroke="#DDD" stroke-width="1.5"/><ellipse cx="228" cy="90" rx="14" ry="7" fill="#C4956A" fill-opacity="0.1" stroke="#C4956A" stroke-width="0.8" stroke-opacity="0.3"/><rect x="290" y="36" width="10" height="88" rx="2" fill="#E8E8E8" stroke="#DDD" stroke-width="0.5"/><rect x="352" y="234" width="96" height="22" rx="4" fill="#F5F5F5" stroke="#EBEBEB" stroke-width="1"/><text x="400" y="249" fill="#CCC" font-size="8" text-anchor="middle" font-family="Inter" letter-spacing="2">RENDER 1/2</text></svg>';
-    var lv=mk("div","","","display:flex;gap:8px;margin-top:14px;");
-    ["Natural Light","Evening Mood"].forEach(function(v,i){
-      var btn=mk("div","","","flex:1;height:52px;border-radius:8px;background:"+(i===0?"#F8F8F8":"#fff")+";border:1px solid "+(i===0?"#1A1A1A":"#EBEBEB")+";display:flex;align-items:center;justify-content:center;cursor:pointer;");
-      btn.appendChild(mk("span","",v,"font-size:9px;color:"+(i===0?"#1A1A1A":"#CCC")+";font-family:Inter;letter-spacing:.15em;font-weight:"+(i===0?"500":"400")+";"));
-      lv.appendChild(btn);
+    pv.textContent=RO[sr]+' — '+MO[sm][0];
+    var card=mk('div','','','border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;padding:20px;');
+    var svg=svgElem('svg',{viewBox:'0 0 460 280'});
+    svg.style.width='100%';
+    svg.appendChild(svgElem('polygon',{points:'230,35 400,128 230,222 60,128',fill:'#F8F8F8',stroke:'#E8E8E8','stroke-width':'1.5'}));
+    svg.appendChild(svgElem('polygon',{points:'60,35 230,35 230,222 60,128',fill:'#F2F2F2',stroke:'#E8E8E8'}));
+    svg.appendChild(svgElem('polygon',{points:'96,155 175,111 194,121 114,165',fill:'#E8E8E8',stroke:'#DDD','stroke-width':'0.5'}));
+    svg.appendChild(svgElem('polygon',{points:'96,145 175,101 175,111 96,155',fill:'#EBEBEB',stroke:'#DDD','stroke-width':'0.5'}));
+    svg.appendChild(svgElem('line',{x1:228,y1:216,x2:228,y2:90,stroke:'#DDD','stroke-width':'1.5'}));
+    svg.appendChild(svgElem('ellipse',{cx:228,cy:90,rx:14,ry:7,fill:'#C4956A','fill-opacity':'0.1',stroke:'#C4956A','stroke-width':'0.8','stroke-opacity':'0.3'}));
+    var rt=svgElem('text',{x:400,y:249,fill:'#CCC','font-size':'8','text-anchor':'middle','font-family':'Inter','letter-spacing':'2'});rt.textContent='RENDER 1/2';svg.appendChild(rt);
+    ap(card,svg);
+    var lv=mk('div','','','display:flex;gap:8px;margin-top:14px;');
+    ['Natural Light','Evening Mood'].forEach(function(v,i){
+      var b=mk('div','','','flex:1;height:52px;border-radius:8px;background:'+(i===0?'#F8F8F8':'#fff')+';border:1px solid '+(i===0?'#1A1A1A':'#EBEBEB')+';display:flex;align-items:center;justify-content:center;cursor:pointer;');
+      ap(b,mk('span','',v,'font-size:9px;color:'+(i===0?'#1A1A1A':'#CCC')+';font-family:Inter;letter-spacing:.15em;font-weight:'+(i===0?'500':'400')+';'));
+      ap(lv,b);
     });
-    card.appendChild(lv);el.appendChild(card);
+    ap(card,lv);
+    ap(R,card);
   }
 }
-function sellay(i){sl=i;rendleft();rendright();}
-function selmood(i){sm=i;rendleft();rendright();}
-function selroom(i){sr=i;rendleft();rendright();}
-function gostep(d){
-  var n=cs+d;if(n<0||n>3)return;cs=n;
-  rendsteps();rendleft();rendright();
-  document.getElementById("dprev").style.opacity=cs===0?"0.3":"1";
-  document.getElementById("dprog").textContent="STEP "+(cs+1)+" OF 4";
-  document.getElementById("dnext").textContent=cs===3?"DOWNLOAD ↓":"CONTINUE →";
-}
-rendsteps();rendleft();rendright();
-document.getElementById("dprev").style.opacity="0.3";
+function go(d){var n=cs+d;if(n<0||n>3)return;cs=n;rend();rl();rr();document.getElementById('dprev').style.opacity=cs===0?'0.3':'1';document.getElementById('dpg').textContent='STEP '+(cs+1)+' OF 4';document.getElementById('dnext').textContent=cs===3?'DOWNLOAD':'CONTINUE →';}
+rend();rl();rr();
+document.getElementById('dprev').style.opacity='0.3';
 </script>
 </body>
 </html>
