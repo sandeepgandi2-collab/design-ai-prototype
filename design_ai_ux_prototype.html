@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design AI — UX Prototype</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#050508;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:'Courier New',Courier,monospace;padding:20px;}
+#dai{width:100%;max-width:1100px;}
+.df{background:#09090E;border-radius:14px;border:0.5px solid #1E1E2A;overflow:hidden;display:flex;flex-direction:column;}
+.dtop{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:52px;border-bottom:0.5px solid #1E1E2A;flex-shrink:0;}
+.dlogo{font-size:12px;letter-spacing:.35em;color:#C4956A;}
+.dsteps{display:flex;align-items:center;gap:6px;}
+.dsdot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:0.5px solid #2A2A38;color:#4A4A5A;letter-spacing:0;}
+.dsdot.a{border-color:#C4956A;color:#C4956A;}
+.dsdot.d{border-color:#3A7A6A;color:#3A7A6A;background:#081F1A;}
+.dsline{width:28px;height:0.5px;background:#1E1E2A;}
+.dsline.d{background:#3A7A6A;}
+.dexp{font-size:10px;letter-spacing:.12em;color:#C4956A;background:transparent;border:0.5px solid #C4956A;border-radius:5px;padding:5px 12px;cursor:pointer;font-family:inherit;}
+.dbody{display:grid;grid-template-columns:340px 1fr;flex:1;}
+.dleft{border-right:0.5px solid #1E1E2A;padding:22px 20px;overflow-y:auto;background:#09090E;min-height:480px;}
+.dright{background:#060609;display:flex;align-items:center;justify-content:center;padding:20px;min-height:480px;}
+.dbot{height:56px;border-top:0.5px solid #1E1E2A;display:flex;align-items:center;justify-content:space-between;padding:0 20px;flex-shrink:0;}
+.dstitle{font-size:10px;letter-spacing:.2em;color:#C4956A;margin:0 0 6px;}
+.dshead{font-size:19px;color:#F0EDE8;margin:0 0 4px;font-weight:normal;font-family:Georgia,serif;}
+.dsdesc{font-size:11px;color:#666678;margin:0 0 22px;line-height:1.65;}
+.dup{border:0.5px dashed #2A2A38;border-radius:9px;padding:28px 20px;text-align:center;cursor:pointer;margin-bottom:14px;}
+.dup:hover{border-color:#C4956A;}
+.dupico{font-size:26px;color:#4A4A5A;margin-bottom:6px;}
+.dopt{border:0.5px solid #1E1E2A;border-radius:7px;padding:13px 14px;cursor:pointer;display:flex;align-items:center;gap:11px;margin-bottom:8px;}
+.dopt:hover{border-color:#2A2A38;}
+.dopt.sel{border-color:#C4956A;background:#120E06;}
+.doptb{width:30px;height:30px;border-radius:5px;background:#120E06;border:0.5px solid #2A2A38;display:flex;align-items:center;justify-content:center;font-size:10px;color:#C4956A;flex-shrink:0;}
+.doptn{font-size:12px;color:#E0DDD8;margin-bottom:2px;}
+.doptd{font-size:10px;color:#666678;line-height:1.4;}
+.doptc{margin-left:auto;color:#C4956A;font-size:13px;opacity:0;}
+.dopt.sel .doptc{opacity:1;}
+.dmoods{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:16px;}
+.dmood{border:0.5px solid #1E1E2A;border-radius:7px;padding:10px;cursor:pointer;text-align:center;}
+.dmood:hover{border-color:#2A2A38;}
+.dmood.sel{border-color:#C4956A;}
+.dmsw{height:28px;border-radius:4px;margin-bottom:6px;}
+.dmn{font-size:10px;color:#B0ADA8;}
+.dbtn{font-size:11px;letter-spacing:.12em;color:#666678;background:transparent;border:0.5px solid #1E1E2A;border-radius:5px;padding:7px 14px;cursor:pointer;font-family:inherit;}
+.dbtn:hover{border-color:#2A2A38;color:#B0ADA8;}
+.dbtn.p{color:#09090E;background:#C4956A;border-color:#C4956A;}
+.dbtn.p:hover{background:#D4A57A;}
+.dprog{font-size:10px;color:#3A3A4A;letter-spacing:.12em;}
+.drow{display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid #12121A;}
+.dtag{padding:4px 10px;border:0.5px solid #1E1E2A;border-radius:20px;font-size:10px;color:#5A5A6A;cursor:pointer;margin:3px;}
+.dtag.sel{border-color:#C4956A;color:#C4956A;background:#120E06;}
+.dnote{padding:13px;border:0.5px solid #1E1E2A;border-radius:7px;background:#08080C;margin-top:16px;}
+.dpvl{font-size:9px;letter-spacing:.15em;color:#3A3A4A;margin-bottom:10px;text-align:right;}
+@media(max-width:700px){.dbody{grid-template-columns:1fr;}.dright{min-height:320px;}}
+</style>
+</head>
+<body>
+<div id="dai">
+<div class="df">
+  <div class="dtop">
+    <div class="dlogo">DESIGN · AI</div>
+    <div class="dsteps" id="dsteps"></div>
+    <button class="dexp">BOOK AN EXPERT</button>
+  </div>
+  <div class="dbody">
+    <div class="dleft" id="dleft"></div>
+    <div class="dright"><div style="width:100%;max-width:500px;" id="dright"></div></div>
+  </div>
+  <div class="dbot">
+    <button class="dbtn" id="dprev" onclick="gostep(-1)">← BACK</button>
+    <div class="dprog" id="dprog">STEP 1 OF 4</div>
+    <button class="dbtn p" id="dnext" onclick="gostep(1)">CONTINUE →</button>
+  </div>
+</div>
+</div>
+
+<script>
+var cs=0,sl=0,sm=0,sr=0;
+var snames=['FLOOR PLAN','LAYOUT','MOOD','DESIGN'];
+var layouts=[
+  {n:'Vastu Aligned',d:'South-west master, north pooja, optimal energy flow'},
+  {n:'Open Concept',d:'Maximised space, seamless flow between living areas'},
+  {n:'Zoned Living',d:'Defined activity zones, clear traffic paths, ergonomic spacing'}
+];
+var moods=[
+  {n:'Modern',c:'#1A1A2E'},{n:'Minimal',c:'#C8C4BC'},{n:'Warm',c:'#7A4A2C'},
+  {n:'Natural',c:'#2D4A3E'},{n:'Luxury',c:'#1A1208'},{n:'Coastal',c:'#1E3A4A'}
+];
+var rooms=['Living Room','Bedroom','Dining','Kitchen'];
+var notes=['Optimal energy flow for south-facing home. Sofa axis aligned with dominant light source.','Creates visual depth and enhances perceived room volume.','Defined zones reduce visual clutter and improve daily function.'];
+
+function rendsteps(){
+  var h='';
+  snames.forEach(function(l,i){
+    var cls=i<cs?'d':(i===cs?'a':'');
+    var txt=i<cs?'✓':i+1;
+    h+='<div class="dsdot '+cls+'">'+txt+'</div>';
+    if(i<3)h+='<div class="dsline '+(i<cs?'d':'')+'"></div>';
+  });
+  document.getElementById('dsteps').innerHTML=h;
+}
+
+function rendleft(){
+  var el=document.getElementById('dleft'),h='';
+  if(cs===0){
+    h='<div class="dstitle">STEP 01 — UPLOAD</div>';
+    h+='<div class="dshead">Your Floor Plan</div>';
+    h+='<div class="dsdesc">Upload your floor plan or sketch. AI reads dimensions, identifies rooms, and maps spatial logic before any design begins.</div>';
+    h+='<div class="dup" onclick="gostep(1)"><div class="dupico">⌗</div><div style="font-size:12px;color:#666678;">Drop floor plan here<br>or click to upload</div><div style="font-size:10px;color:#2A2A38;margin-top:4px;">PDF · PNG · JPG · DWG supported</div></div>';
+    h+='<div style="font-size:9px;color:#2A2A38;letter-spacing:.15em;margin-bottom:10px;margin-top:16px;">WHAT WE DETECT</div>';
+    ['Room dimensions & proportions','Vastu directions & orientation','Natural light entry points','Structural walls & openings'].forEach(function(t){
+      h+='<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:0.5px solid #12121A;"><div style="width:4px;height:4px;border-radius:50%;background:#C4956A;flex-shrink:0;"></div><span style="font-size:11px;color:#666678;">'+t+'</span></div>';
+    });
+  } else if(cs===1){
+    h='<div class="dstitle">STEP 02 — LAYOUT</div>';
+    h+='<div class="dshead">Choose Your Layout</div>';
+    h+='<div class="dsdesc">Three scientifically generated arrangements. Each follows Vastu, ergonomic standards, and optimal traffic flow.</div>';
+    layouts.forEach(function(l,i){
+      h+='<div class="dopt '+(sl===i?'sel':'')+'" onclick="sellay('+i+')"><div class="doptb">'+String.fromCharCode(65+i)+'</div><div><div class="doptn">'+l.n+'</div><div class="doptd">'+l.d+'</div></div><div class="doptc">◉</div></div>';
+    });
+    h+='<div class="dnote"><div style="font-size:9px;color:#C4956A;letter-spacing:.15em;margin-bottom:6px;">ARCHITECT\'S NOTE</div><div style="font-size:11px;color:#5A5A6A;line-height:1.65;font-family:Georgia,serif;font-style:italic;">'+notes[sl]+'</div></div>';
+  } else if(cs===2){
+    h='<div class="dstitle">STEP 03 — MOOD</div>';
+    h+='<div class="dshead">Select Your Aesthetic</div>';
+    h+='<div class="dsdesc">Define the material palette, lighting tone, and furniture style applied across all rooms.</div>';
+    h+='<div class="dmoods">';
+    moods.forEach(function(m,i){
+      h+='<div class="dmood '+(sm===i?'sel':'')+'" onclick="selmood('+i+')"><div class="dmsw" style="background:'+m.c+';"></div><div class="dmn">'+m.n+'</div></div>';
+    });
+    h+='</div>';
+    h+='<div style="font-size:9px;color:#2A2A38;letter-spacing:.15em;margin-bottom:8px;">COLOUR PALETTE</div>';
+    h+='<div style="display:flex;gap:5px;">';
+    [moods[sm].c,'#F0EDE8','#C4956A','#2A2A38','#09090E'].forEach(function(c){h+='<div style="flex:1;height:26px;border-radius:3px;background:'+c+';border:0.5px solid #1E1E2A;"></div>';});
+    h+='</div>';
+    h+='<div style="margin-top:16px;"><div style="font-size:9px;color:#2A2A38;letter-spacing:.15em;margin-bottom:8px;">MATERIALS</div>';
+    ['Matte concrete','Brushed brass','Natural linen','Smoked oak'].forEach(function(m){
+      h+='<div style="font-size:11px;color:#5A5A6A;padding:5px 0;border-bottom:0.5px solid #12121A;">'+m+'</div>';
+    });
+    h+='</div>';
+  } else {
+    h='<div class="dstitle">STEP 04 — DESIGN</div>';
+    h+='<div class="dshead">Your Spaces, Designed</div>';
+    h+='<div class="dsdesc">AI-generated 3D renders for each room. Every detail follows your layout and mood selections.</div>';
+    h+='<div style="font-size:9px;color:#2A2A38;letter-spacing:.15em;margin-bottom:8px;">SELECT ROOM</div>';
+    h+='<div style="display:flex;flex-wrap:wrap;margin-bottom:16px;">';
+    rooms.forEach(function(r,i){h+='<div class="dtag '+(sr===i?'sel':'')+'" onclick="selroom('+i+')">'+r+'</div>';});
+    h+='</div>';
+    h+='<div style="padding:13px;background:#08080C;border-radius:7px;border:0.5px solid #1E1E2A;margin-bottom:14px;">';
+    h+='<div style="font-size:9px;color:#2A2A38;letter-spacing:.12em;margin-bottom:6px;">DESIGN SPECS</div>';
+    [['Style',moods[sm].n],['Layout',layouts[sl].n],['Renders','2 per room'],['Format','4K Photorealistic']].forEach(function(r){
+      h+='<div class="drow"><span style="font-size:11px;color:#3A3A4A;">'+r[0]+'</span><span style="font-size:11px;color:#B0ADA8;">'+r[1]+'</span></div>';
+    });
+    h+='</div>';
+    h+='<div style="padding:14px;border:0.5px solid #C4956A;border-radius:7px;background:#0E0A06;">';
+    h+='<div style="font-size:9px;color:#C4956A;letter-spacing:.15em;margin-bottom:5px;">READY TO BUILD?</div>';
+    h+='<div style="font-size:11px;color:#7A7068;line-height:1.6;margin-bottom:11px;">Turn your design into reality. Connect with our architect for a personalised consultation.</div>';
+    h+='<button style="width:100%;padding:9px;background:#C4956A;border:none;border-radius:5px;font-size:11px;letter-spacing:.15em;color:#09090E;cursor:pointer;font-family:inherit;">BOOK AN EXPERT →</button>';
+    h+='</div>';
+  }
+  el.innerHTML=h;
+}
+
+function rendright(){
+  var el=document.getElementById('dright'),h='';
+  if(cs===0){
+    h='<div class="dpvl">FLOOR PLAN ANALYSIS</div>';
+    h+='<svg viewBox="0 0 480 320" style="width:100%;border-radius:8px;border:0.5px solid #1E1E2A;background:#07070B;">';
+    for(var i=0;i<9;i++)h+='<line x1="'+(52+i*44)+'" y1="28" x2="'+(52+i*44)+'" y2="292" stroke="#0F0F16" stroke-width="0.5"/>';
+    for(var i=0;i<7;i++)h+='<line x1="52" y1="'+(28+i*44)+'" x2="428" y2="'+(28+i*44)+'" stroke="#0F0F16" stroke-width="0.5"/>';
+    h+='<rect x="64" y="38" width="352" height="252" fill="none" stroke="#252530" stroke-width="1.5"/>';
+    h+='<rect x="64" y="38" width="210" height="155" fill="#0C0C14" stroke="#1A1A22" stroke-width="1"/>';
+    h+='<text x="169" y="112" fill="#383840" font-size="10" text-anchor="middle" font-family="Courier New" letter-spacing="2">LIVING ROOM</text>';
+    h+='<text x="169" y="124" fill="#252528" font-size="9" text-anchor="middle" font-family="Courier New">14\' × 12\'</text>';
+    h+='<rect x="64" y="193" width="210" height="97" fill="#0A0A12" stroke="#1A1A22" stroke-width="1"/>';
+    h+='<text x="169" y="240" fill="#383840" font-size="10" text-anchor="middle" font-family="Courier New" letter-spacing="2">BEDROOM</text>';
+    h+='<rect x="274" y="38" width="142" height="115" fill="#0A0C0A" stroke="#1A221A" stroke-width="1"/>';
+    h+='<text x="345" y="93" fill="#383840" font-size="10" text-anchor="middle" font-family="Courier New" letter-spacing="2">DINING</text>';
+    h+='<rect x="274" y="153" width="142" height="77" fill="#0A0A0C" stroke="#1A1A22" stroke-width="1"/>';
+    h+='<text x="345" y="191" fill="#383840" font-size="10" text-anchor="middle" font-family="Courier New" letter-spacing="2">KITCHEN</text>';
+    h+='<rect x="274" y="230" width="85" height="60" fill="#0A0A0C" stroke="#1A1A22" stroke-width="1"/>';
+    h+='<text x="316" y="259" fill="#383840" font-size="9" text-anchor="middle" font-family="Courier New">BATH</text>';
+    h+='<text x="446" y="50" fill="#C4956A" font-size="13" text-anchor="middle" font-family="Courier New">N</text>';
+    h+='<line x1="446" y1="54" x2="446" y2="68" stroke="#C4956A" stroke-width="0.5" opacity="0.4"/>';
+    h+='<rect x="64" y="38" width="352" height="48" fill="#C4956A" fill-opacity="0.015"/>';
+    h+='<line x1="64" y1="86" x2="416" y2="86" stroke="#C4956A" stroke-width="0.5" opacity="0.25"/>';
+    h+='<text x="412" y="84" fill="#C4956A" font-size="8" text-anchor="end" font-family="Courier New" opacity="0.7">SCANNING...</text>';
+    h+='<line x1="64" y1="302" x2="416" y2="302" stroke="#252530" stroke-width="0.5"/>';
+    h+='<text x="240" y="314" fill="#383840" font-size="9" text-anchor="middle" font-family="Courier New">24 ft</text>';
+    h+='</svg>';
+  } else if(cs===1){
+    var svgs=[
+      '<svg viewBox="0 0 480 300" style="width:100%;">'+
+      '<rect x="56" y="32" width="368" height="236" fill="#07070B" stroke="#1E1E2A" stroke-width="1.5"/>'+
+      '<rect x="76" y="148" width="128" height="52" rx="4" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<rect x="76" y="140" width="128" height="16" rx="4" fill="#1A1A28" stroke="#252535" stroke-width="0.5"/>'+
+      '<text x="140" y="178" fill="#383848" font-size="9" text-anchor="middle" font-family="Courier New">SOFA</text>'+
+      '<rect x="92" y="208" width="84" height="38" rx="2" fill="#0E0E18" stroke="#252535" stroke-width="0.5"/>'+
+      '<rect x="76" y="44" width="158" height="22" rx="2" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<text x="155" y="59" fill="#383848" font-size="9" text-anchor="middle" font-family="Courier New">TV UNIT</text>'+
+      '<rect x="220" y="152" width="42" height="42" rx="3" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<rect x="272" y="152" width="42" height="42" rx="3" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<rect x="318" y="44" width="86" height="88" rx="3" fill="#0E140E" stroke="#1E281E" stroke-width="1"/>'+
+      '<circle cx="361" cy="88" r="26" fill="none" stroke="#283828" stroke-width="0.5"/>'+
+      '<text x="361" y="92" fill="#384838" font-size="9" text-anchor="middle" font-family="Courier New">DINING</text>'+
+      '<text x="56" y="52" fill="#C4956A" font-size="9" text-anchor="middle" font-family="Courier New" opacity="0.5">W</text>'+
+      '<text x="430" y="52" fill="#C4956A" font-size="9" text-anchor="middle" font-family="Courier New" opacity="0.5">E</text>'+
+      '<text x="242" y="44" fill="#C4956A" font-size="9" text-anchor="middle" font-family="Courier New" opacity="0.5">N</text>'+
+      '<rect x="56" y="32" width="368" height="236" fill="none" stroke="#C4956A" stroke-width="0.5" opacity="0.35"/>'+
+      '<text x="240" y="290" fill="#C4956A" font-size="9" text-anchor="middle" font-family="Courier New" letter-spacing="2">VASTU ALIGNED</text>'+
+      '</svg>',
+      '<svg viewBox="0 0 480 300" style="width:100%;">'+
+      '<rect x="56" y="32" width="368" height="236" fill="#07070B" stroke="#1E1E2A" stroke-width="1.5"/>'+
+      '<rect x="76" y="175" width="168" height="52" rx="4" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<rect x="228" y="138" width="52" height="89" rx="4" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<ellipse cx="178" cy="228" rx="88" ry="52" fill="none" stroke="#252535" stroke-width="0.5" stroke-dasharray="3,3"/>'+
+      '<rect x="116" y="204" width="72" height="42" rx="2" fill="#0E0E18" stroke="#252535" stroke-width="0.5"/>'+
+      '<rect x="298" y="158" width="106" height="62" rx="3" fill="#0E1010" stroke="#283828" stroke-width="1"/>'+
+      '<text x="351" y="193" fill="#384838" font-size="9" text-anchor="middle" font-family="Courier New">ISLAND</text>'+
+      '<circle cx="308" cy="153" r="8" fill="#141420" stroke="#252535" stroke-width="0.5"/>'+
+      '<circle cx="336" cy="153" r="8" fill="#141420" stroke="#252535" stroke-width="0.5"/>'+
+      '<circle cx="364" cy="153" r="8" fill="#141420" stroke="#252535" stroke-width="0.5"/>'+
+      '<rect x="56" y="32" width="368" height="236" fill="none" stroke="#2A3A4A" stroke-width="0.5" opacity="0.4"/>'+
+      '<text x="240" y="290" fill="#2A3A4A" font-size="9" text-anchor="middle" font-family="Courier New" letter-spacing="2">OPEN CONCEPT</text>'+
+      '</svg>',
+      '<svg viewBox="0 0 480 300" style="width:100%;">'+
+      '<rect x="56" y="32" width="368" height="236" fill="#07070B" stroke="#1E1E2A" stroke-width="1.5"/>'+
+      '<line x1="240" y1="32" x2="240" y2="268" stroke="#1A1A22" stroke-width="0.5" stroke-dasharray="4,4"/>'+
+      '<text x="148" y="50" fill="#282838" font-size="9" text-anchor="middle" font-family="Courier New" letter-spacing="2">LOUNGE</text>'+
+      '<text x="352" y="50" fill="#282838" font-size="9" text-anchor="middle" font-family="Courier New" letter-spacing="2">DINING</text>'+
+      '<rect x="68" y="92" width="144" height="52" rx="3" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<rect x="68" y="154" width="52" height="82" rx="3" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<rect x="160" y="154" width="52" height="82" rx="3" fill="#141420" stroke="#252535" stroke-width="1"/>'+
+      '<rect x="262" y="72" width="114" height="188" rx="4" fill="#0E100E" stroke="#283828" stroke-width="1"/>'+
+      '<rect x="276" y="90" width="86" height="152" rx="2" fill="#0A0C0A" stroke="#1E281E" stroke-width="0.5"/>'+
+      '<circle cx="290" cy="110" r="12" fill="#101810" stroke="#283828" stroke-width="0.5"/>'+
+      '<circle cx="350" cy="110" r="12" fill="#101810" stroke="#283828" stroke-width="0.5"/>'+
+      '<circle cx="290" cy="162" r="12" fill="#101810" stroke="#283828" stroke-width="0.5"/>'+
+      '<circle cx="350" cy="162" r="12" fill="#101810" stroke="#283828" stroke-width="0.5"/>'+
+      '<circle cx="290" cy="214" r="12" fill="#101810" stroke="#283828" stroke-width="0.5"/>'+
+      '<circle cx="350" cy="214" r="12" fill="#101810" stroke="#283828" stroke-width="0.5"/>'+
+      '<rect x="56" y="32" width="368" height="236" fill="none" stroke="#2A2A3A" stroke-width="0.5" opacity="0.4"/>'+
+      '<text x="240" y="290" fill="#2A2A3A" font-size="9" text-anchor="middle" font-family="Courier New" letter-spacing="2">ZONED LIVING</text>'+
+      '</svg>'
+    ];
+    h='<div class="dpvl">LAYOUT OPTION '+String.fromCharCode(65+sl)+'</div>';
+    h+='<div style="border-radius:8px;border:0.5px solid #1E1E2A;overflow:hidden;background:#07070B;">'+svgs[sl]+'</div>';
+  } else if(cs===2){
+    var m=moods[sm];
+    h='<div class="dpvl">MOOD BOARD — '+m.n.toUpperCase()+'</div>';
+    h+='<div style="border-radius:8px;border:0.5px solid #1E1E2A;overflow:hidden;background:#08080C;">';
+    h+='<div style="height:130px;background:'+m.c+';display:flex;align-items:flex-end;padding:14px;">';
+    h+='<span style="font-size:20px;color:rgba(240,237,232,0.12);font-family:Georgia,serif;letter-spacing:.1em;">'+m.n.toUpperCase()+'</span></div>';
+    h+='<div style="padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;">';
+    h+='<div style="padding:10px;background:#0C0C14;border-radius:5px;border:0.5px solid #1E1E2A;">';
+    h+='<div style="font-size:8px;color:#2A2A38;letter-spacing:.15em;margin-bottom:7px;">MATERIALS</div>';
+    ['Matte concrete','Brushed brass','Natural linen','Smoked oak'].forEach(function(t){
+      h+='<div style="font-size:10px;color:#5A5A6A;padding:4px 0;border-bottom:0.5px solid #12121A;">'+t+'</div>';
+    });
+    h+='</div>';
+    h+='<div style="padding:10px;background:#0C0C14;border-radius:5px;border:0.5px solid #1E1E2A;">';
+    h+='<div style="font-size:8px;color:#2A2A38;letter-spacing:.15em;margin-bottom:7px;">PALETTE</div>';
+    h+='<div style="display:flex;gap:4px;margin-bottom:10px;">';
+    [m.c,'#F0EDE8','#C4956A','#2A2A38','#09090E'].forEach(function(c){h+='<div style="flex:1;height:22px;border-radius:2px;background:'+c+';"></div>';});
+    h+='</div>';
+    h+='<div style="font-size:8px;color:#2A2A38;letter-spacing:.15em;margin-bottom:6px;">LIGHTING</div>';
+    h+='<div style="font-size:10px;color:#5A5A6A;padding:3px 0;">Warm 2700K ambient</div>';
+    h+='<div style="font-size:10px;color:#5A5A6A;padding:3px 0;">Accent task spots</div>';
+    h+='</div></div>';
+    h+='<div style="padding:0 14px 14px;">';
+    h+='<div style="font-size:8px;color:#2A2A38;letter-spacing:.15em;margin-bottom:8px;">STYLE TAGS</div>';
+    h+='<div style="display:flex;flex-wrap:wrap;gap:5px;">';
+    ['Clean lines','Low profile','Organic forms','Minimal hardware','Warm textures'].forEach(function(t){
+      h+='<span style="padding:3px 9px;border:0.5px solid #1E1E2A;border-radius:20px;font-size:9px;color:#4A4A5A;">'+t+'</span>';
+    });
+    h+='</div></div></div>';
+  } else {
+    var rsn=rooms[sr];
+    h='<div class="dpvl">'+rsn.toUpperCase()+' — '+moods[sm].n.toUpperCase()+'</div>';
+    h+='<div style="border-radius:8px;border:0.5px solid #1E1E2A;overflow:hidden;background:#06060A;padding:14px;">';
+    if(rsn==='Bedroom'){
+      h+='<svg viewBox="0 0 460 280" style="width:100%;">';
+      h+='<polygon points="230,35 400,128 230,222 60,128" fill="#0E0E16" stroke="#1E1E2A" stroke-width="1"/>';
+      h+='<polygon points="60,35 230,35 230,222 60,128" fill="#0C0C14"/>';
+      h+='<line x1="60" y1="35" x2="230" y2="35" stroke="#1E1E2A" stroke-width="1"/>';
+      h+='<polygon points="120,172 252,100 270,110 138,182" fill="#1A1220" stroke="#251A2E" stroke-width="0.5"/>';
+      h+='<polygon points="120,152 252,80 252,100 120,172" fill="#141018" stroke="#251A2E" stroke-width="0.5"/>';
+      h+='<polygon points="120,122 252,50 252,80 120,152" fill="#1E1828" stroke="#251A2E" stroke-width="0.5"/>';
+      h+='<ellipse cx="162" cy="122" rx="18" ry="9" fill="#2A2438" stroke="#3A3448" stroke-width="0.5" transform="rotate(-25 162 122)"/>';
+      h+='<ellipse cx="210" cy="100" rx="18" ry="9" fill="#2A2438" stroke="#3A3448" stroke-width="0.5" transform="rotate(-25 210 100)"/>';
+      h+='<polygon points="285,158 318,138 324,141 291,161" fill="#141020" stroke="#252530" stroke-width="0.5"/>';
+      h+='<line x1="302" y1="140" x2="302" y2="114" stroke="#252535" stroke-width="1.5"/>';
+      h+='<ellipse cx="302" cy="114" rx="10" ry="5" fill="#C4956A" fill-opacity="0.12" stroke="#C4956A" stroke-width="0.5"/>';
+      h+='<rect x="360" y="238" width="88" height="22" rx="3" fill="#120E06" stroke="#C4956A" stroke-width="0.5"/>';
+      h+='<text x="404" y="253" fill="#C4956A" font-size="8" text-anchor="middle" font-family="Courier New" letter-spacing="2">RENDER 1/2</text>';
+      h+='</svg>';
+    } else {
+      h+='<svg viewBox="0 0 460 280" style="width:100%;">';
+      h+='<polygon points="230,35 400,128 230,222 60,128" fill="#0E0E16" stroke="#1E1E2A" stroke-width="1"/>';
+      h+='<polygon points="60,35 230,35 230,222 60,128" fill="#0C0C14"/>';
+      h+='<line x1="60" y1="35" x2="230" y2="35" stroke="#1E1E2A" stroke-width="1"/>';
+      h+='<polygon points="96,158 175,114 194,123 114,168" fill="#141420" stroke="#252535" stroke-width="0.5"/>';
+      h+='<polygon points="96,148 175,104 175,114 96,158" fill="#1A1A28" stroke="#252535" stroke-width="0.5"/>';
+      h+='<rect x="96" y="138" width="15" height="20" rx="2" fill="#1A1A28" stroke="#252535" stroke-width="0.5"/>';
+      h+='<polygon points="145,185 192,160 200,165 153,190" fill="#0E0E18" stroke="#252530" stroke-width="0.5"/>';
+      h+='<line x1="228" y1="218" x2="228" y2="92" stroke="#2A2A38" stroke-width="1.5"/>';
+      h+='<ellipse cx="228" cy="92" rx="14" ry="7" fill="#C4956A" fill-opacity="0.1" stroke="#C4956A" stroke-width="0.5"/>';
+      h+='<rect x="290" y="38" width="10" height="90" rx="2" fill="#1A1820" stroke="#252530" stroke-width="0.5"/>';
+      h+='<rect x="360" y="238" width="88" height="22" rx="3" fill="#120E06" stroke="#C4956A" stroke-width="0.5"/>';
+      h+='<text x="404" y="253" fill="#C4956A" font-size="8" text-anchor="middle" font-family="Courier New" letter-spacing="2">RENDER 1/2</text>';
+      h+='</svg>';
+    }
+    h+='<div style="display:flex;gap:8px;margin-top:10px;">';
+    ['Natural Light','Evening Mood'].forEach(function(v,i){
+      h+='<div style="flex:1;height:52px;border-radius:5px;background:'+(i===0?'#0E0E18':'#080608')+';border:0.5px solid '+(i===0?'#C4956A':'#1E1E2A')+';display:flex;align-items:center;justify-content:center;cursor:pointer;">';
+      h+='<span style="font-size:9px;color:'+(i===0?'#C4956A':'#383840')+';font-family:Courier New;letter-spacing:.12em;">'+v+'</span></div>';
+    });
+    h+='</div></div>';
+  }
+  document.getElementById('dright').innerHTML=h;
+}
+
+function sellay(i){sl=i;rendleft();rendright();}
+function selmood(i){sm=i;rendleft();rendright();}
+function selroom(i){sr=i;rendleft();rendright();}
+
+function gostep(d){
+  var n=cs+d;
+  if(n<0||n>3)return;
+  cs=n;
+  rendsteps();rendleft();rendright();
+  document.getElementById('dprev').style.opacity=cs===0?'0.3':'1';
+  document.getElementById('dprog').textContent='STEP '+(cs+1)+' OF 4';
+  document.getElementById('dnext').textContent=cs===3?'DOWNLOAD ↓':'CONTINUE →';
+}
+
+rendsteps();rendleft();rendright();
+document.getElementById('dprev').style.opacity='0.3';
+</script>
+</body>
+</html>
