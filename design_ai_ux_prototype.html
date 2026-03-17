@@ -5,59 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Design AI — UX Prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:#F7F6F3;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Inter,sans-serif;padding:24px;}
-#dai{width:100%;max-width:1080px;}
-.df{background:#FFF;border-radius:20px;border:1px solid #EBEBEB;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 40px rgba(0,0,0,0.06);}
-.dtop{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;border-bottom:1px solid #F0F0F0;flex-shrink:0;}
-.dlogo{font-size:11px;letter-spacing:.4em;color:#1A1A1A;font-weight:500;}
-.dsteps{display:flex;align-items:center;gap:8px;}
-.dsdot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:1px solid #DCDCDC;color:#C8C8C8;transition:all .3s;}
-.dsdot.a{border-color:#1A1A1A;color:#1A1A1A;}
-.dsdot.d{border-color:#1A1A1A;color:#FFF;background:#1A1A1A;}
-.dsline{width:32px;height:1px;background:#EBEBEB;}
-.dsline.d{background:#1A1A1A;}
-.dexp{font-size:10px;letter-spacing:.12em;color:#1A1A1A;background:transparent;border:1px solid #1A1A1A;border-radius:6px;padding:6px 14px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}
-.dexp:hover{background:#1A1A1A;color:#FFF;}
-.dbody{display:grid;grid-template-columns:320px 1fr;flex:1;}
-.dleft{border-right:1px solid #F0F0F0;padding:28px 24px;overflow-y:auto;background:#FFF;min-height:500px;}
-.dright{background:#F7F6F3;display:flex;align-items:center;justify-content:center;padding:28px;min-height:500px;}
-.dbot{height:60px;border-top:1px solid #F0F0F0;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-shrink:0;}
-.dstitle{font-size:9px;letter-spacing:.25em;color:#C8C8C8;margin:0 0 8px;}
-.dshead{font-size:22px;color:#1A1A1A;margin:0 0 6px;font-weight:400;font-family:"Playfair Display",serif;}
-.dsdesc{font-size:11px;color:#999;margin:0 0 24px;line-height:1.8;font-weight:300;}
-.dup{border:1px dashed #DCDCDC;border-radius:12px;padding:32px 20px;text-align:center;cursor:pointer;margin-bottom:16px;transition:all .2s;background:#FAFAFA;}
-.dup:hover{border-color:#1A1A1A;}
-.dupico{font-size:22px;color:#C8C8C8;margin-bottom:8px;}
-.dopt{border:1px solid #EBEBEB;border-radius:10px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px;transition:all .2s;background:#FFF;}
-.dopt:hover{border-color:#DCDCDC;background:#FAFAFA;}
-.dopt.sel{border-color:#1A1A1A;background:#FAFAFA;}
-.doptb{width:32px;height:32px;border-radius:8px;background:#F5F5F5;border:1px solid #EBEBEB;display:flex;align-items:center;justify-content:center;font-size:11px;color:#1A1A1A;flex-shrink:0;font-weight:500;}
-.dopt.sel .doptb{background:#1A1A1A;color:#FFF;border-color:#1A1A1A;}
-.doptn{font-size:12px;color:#1A1A1A;margin-bottom:2px;font-weight:500;}
-.doptd{font-size:10px;color:#AAA;line-height:1.5;font-weight:300;}
-.doptc{margin-left:auto;color:#1A1A1A;font-size:13px;opacity:0;}
-.dopt.sel .doptc{opacity:1;}
-.dmoods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}
-.dmood{border:1px solid #EBEBEB;border-radius:10px;padding:12px;cursor:pointer;text-align:center;transition:all .2s;background:#FFF;}
-.dmood:hover{border-color:#DCDCDC;}
-.dmood.sel{border-color:#1A1A1A;}
-.dmsw{height:30px;border-radius:6px;margin-bottom:8px;}
-.dmn{font-size:10px;color:#999;font-weight:400;}
-.dmood.sel .dmn{color:#1A1A1A;font-weight:500;}
-.dbtn{font-size:10px;letter-spacing:.12em;color:#999;background:transparent;border:1px solid #DCDCDC;border-radius:7px;padding:8px 16px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}
-.dbtn:hover{border-color:#1A1A1A;color:#1A1A1A;}
-.dbtn.p{color:#FFF;background:#1A1A1A;border-color:#1A1A1A;}
-.dbtn.p:hover{background:#333;}
-.dprog{font-size:9px;color:#C8C8C8;letter-spacing:.2em;}
-.drow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #F5F5F5;}
-.dtag{padding:5px 12px;border:1px solid #EBEBEB;border-radius:20px;font-size:10px;color:#999;cursor:pointer;margin:3px;transition:all .2s;}
-.dtag.sel{border-color:#1A1A1A;color:#1A1A1A;}
-.dnote{padding:14px;border:1px solid #F0F0F0;border-radius:10px;background:#FAFAFA;margin-top:18px;}
-.dpvl{font-size:9px;letter-spacing:.2em;color:#C8C8C8;margin-bottom:12px;text-align:right;}
-@media(max-width:700px){.dbody{grid-template-columns:1fr;}.dright{min-height:300px;}}
+*{box-sizing:border-box;margin:0;padding:0;}body{background:#F7F6F3;display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:Inter,sans-serif;padding:24px;}#dai{width:100%;max-width:1080px;}.df{background:#fff;border-radius:20px;border:1px solid #EBEBEB;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 40px rgba(0,0,0,.06);}.dtop{display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;border-bottom:1px solid #F0F0F0;flex-shrink:0;}.dlogo{font-size:11px;letter-spacing:.4em;color:#1A1A1A;font-weight:500;}.dsteps{display:flex;align-items:center;gap:8px;}.dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:1px solid #DCDCDC;color:#CCC;transition:all .3s;}.dot.a{border-color:#1A1A1A;color:#1A1A1A;}.dot.d{border-color:#1A1A1A;color:#fff;background:#1A1A1A;}.dline{width:32px;height:1px;background:#EBEBEB;}.dline.d{background:#1A1A1A;}.dexp{font-size:10px;letter-spacing:.12em;color:#1A1A1A;background:transparent;border:1px solid #1A1A1A;border-radius:6px;padding:6px 14px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}.dexp:hover{background:#1A1A1A;color:#fff;}.dbody{display:grid;grid-template-columns:320px 1fr;flex:1;}.dleft{border-right:1px solid #F0F0F0;padding:28px 24px;overflow-y:auto;background:#fff;min-height:500px;}.dright{background:#F7F6F3;display:flex;align-items:center;justify-content:center;padding:28px;min-height:500px;}.dbot{height:60px;border-top:1px solid #F0F0F0;display:flex;align-items:center;justify-content:space-between;padding:0 28px;flex-shrink:0;}.dtitle{font-size:9px;letter-spacing:.25em;color:#CCC;margin:0 0 8px;}.dhead{font-size:22px;color:#1A1A1A;margin:0 0 6px;font-weight:400;font-family:Georgia,serif;}.ddesc{font-size:11px;color:#999;margin:0 0 24px;line-height:1.8;font-weight:300;}.dup{border:1px dashed #DCDCDC;border-radius:12px;padding:32px 20px;text-align:center;cursor:pointer;margin-bottom:16px;transition:all .2s;background:#FAFAFA;}.dup:hover{border-color:#1A1A1A;}.dupico{font-size:22px;color:#CCC;margin-bottom:8px;}.dopt{border:1px solid #EBEBEB;border-radius:10px;padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px;transition:all .2s;background:#fff;}.dopt:hover{border-color:#DCDCDC;background:#FAFAFA;}.dopt.sel{border-color:#1A1A1A;background:#FAFAFA;}.doptb{width:32px;height:32px;border-radius:8px;background:#F5F5F5;border:1px solid #EBEBEB;display:flex;align-items:center;justify-content:center;font-size:11px;color:#1A1A1A;flex-shrink:0;font-weight:500;}.dopt.sel .doptb{background:#1A1A1A;color:#fff;border-color:#1A1A1A;}.doptn{font-size:12px;color:#1A1A1A;margin-bottom:2px;font-weight:500;}.doptd{font-size:10px;color:#AAA;line-height:1.5;font-weight:300;}.doptc{margin-left:auto;color:#1A1A1A;font-size:13px;opacity:0;}.dopt.sel .doptc{opacity:1;}.dmoods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px;}.dmood{border:1px solid #EBEBEB;border-radius:10px;padding:12px;cursor:pointer;text-align:center;transition:all .2s;background:#fff;}.dmood:hover{border-color:#DCDCDC;}.dmood.sel{border-color:#1A1A1A;}.dmsw{height:30px;border-radius:6px;margin-bottom:8px;}.dmn{font-size:10px;color:#999;}.dmood.sel .dmn{color:#1A1A1A;font-weight:500;}.dbtn{font-size:10px;letter-spacing:.12em;color:#999;background:transparent;border:1px solid #DCDCDC;border-radius:7px;padding:8px 16px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s;}.dbtn:hover{border-color:#1A1A1A;color:#1A1A1A;}.dbtn.p{color:#fff;background:#1A1A1A;border-color:#1A1A1A;}.dbtn.p:hover{background:#333;}.dprog{font-size:9px;color:#CCC;letter-spacing:.2em;}.drow{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #F5F5F5;}.dtag{padding:5px 12px;border:1px solid #EBEBEB;border-radius:20px;font-size:10px;color:#999;cursor:pointer;margin:3px;transition:all .2s;}.dtag.sel{border-color:#1A1A1A;color:#1A1A1A;}.dnote{padding:14px;border:1px solid #F0F0F0;border-radius:10px;background:#FAFAFA;margin-top:18px;}.dpvl{font-size:9px;letter-spacing:.2em;color:#CCC;margin-bottom:12px;text-align:right;}@media(max-width:700px){.dbody{grid-template-columns:1fr;}.dright{min-height:300px;}}
 </style>
 </head>
 <body>
@@ -68,30 +18,166 @@ body{background:#F7F6F3;display:flex;align-items:center;justify-content:center;m
 </div></div>
 <script>
 var cs=0,sl=0,sm=2,sr=0;
-var snames=["UPLOAD","LAYOUT","MOOD","DESIGN"];
-var layouts=[{n:"Vastu Aligned",d:"South-west master, north pooja, optimal energy flow"},{n:"Open Concept",d:"Maximised space, seamless flow between living areas"},{n:"Zoned Living",d:"Defined activity zones, clear traffic paths, ergonomic spacing"}];
-var moods=[{n:"Modern",c:"#2C2C3E"},{n:"Minimal",c:"#E8E4DC"},{n:"Warm",c:"#C4956A"},{n:"Natural",c:"#7A9E7E"},{n:"Luxury",c:"#8B7355"},{n:"Coastal",c:"#7BA7BC"}];
+var layouts=[["Vastu Aligned","South-west master, north pooja, optimal energy flow"],["Open Concept","Maximised space, seamless flow between living areas"],["Zoned Living","Defined activity zones, clear traffic paths, ergonomic spacing"]];
+var moods=[["Modern","#2C2C3E"],["Minimal","#E8E4DC"],["Warm","#C4956A"],["Natural","#7A9E7E"],["Luxury","#8B7355"],["Coastal","#7BA7BC"]];
 var rooms=["Living Room","Bedroom","Dining","Kitchen"];
 var notes=["Optimal energy flow for south-facing home. Sofa axis aligned with dominant light source.","Creates visual depth and enhances perceived room volume.","Defined zones reduce visual clutter and improve daily function."];
-function rendsteps(){var h="";snames.forEach(function(l,i){var cls=i<cs?"d":(i===cs?"a":"");var txt=i<cs?"✓":i+1;h+='<div class="dsdot '+cls+'">'+txt+"</div>";if(i<3)h+='<div class="dsline '+(i<cs?"d":"")+'"></div>';});document.getElementById("dsteps").innerHTML=h;}
-function rendleft(){var el=document.getElementById("dleft"),h="";
-if(cs===0){h+='<div class="dstitle">STEP 01 — UPLOAD</div>';h+='<div class="dshead">Your Floor Plan</div>';h+='<div class="dsdesc">Upload your floor plan or sketch. AI reads dimensions, identifies rooms, and maps spatial logic before any design begins.</div>';h+='<div class="dup" onclick="gostep(1)"><div class="dupico">⌗</div><div style="font-size:12px;color:#AAA;font-weight:300;">Drop floor plan here<br>or click to upload</div><div style="font-size:10px;color:#DCDCDC;margin-top:6px;font-weight:300;">PDF · PNG · JPG · DWG</div></div>';h+='<div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin:18px 0 10px;">WHAT WE DETECT</div>';["Room dimensions & proportions","Vastu directions & orientation","Natural light entry points","Structural walls & openings"].forEach(function(t){h+='<div style="display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid #F5F5F5;"><div style="width:4px;height:4px;border-radius:50%;background:#C8C8C8;flex-shrink:0;"></div><span style="font-size:11px;color:#AAA;font-weight:300;">'+t+"</span></div>";});}
-else if(cs===1){h+='<div class="dstitle">STEP 02 — LAYOUT</div>';h+='<div class="dshead">Choose Your Layout</div>';h+='<div class="dsdesc">Three arrangements generated for your space. Each follows Vastu, ergonomic standards, and optimal flow.</div>';layouts.forEach(function(l,i){h+='<div class="dopt '+(sl===i?"sel":"")+'" onclick="sellay('+i+')"><div class="doptb">'+String.fromCharCode(65+i)+"</div><div><div class="doptn">"+l.n+"</div><div class="doptd">"+l.d+'</div></div><div class="doptc">✓</div></div>';});h+='<div class="dnote"><div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:8px;">ARCHITECT'S NOTE</div><div style="font-size:11px;color:#AAA;line-height:1.8;font-family:'Playfair Display',serif;font-style:italic;font-weight:300;">'+notes[sl]+"</div></div>";}
-else if(cs===2){h+='<div class="dstitle">STEP 03 — MOOD</div>';h+='<div class="dshead">Select Your Aesthetic</div>';h+='<div class="dsdesc">Define the material palette and lighting tone applied across all rooms.</div>';h+='<div class="dmoods">';moods.forEach(function(m,i){h+='<div class="dmood '+(sm===i?"sel":"")+'" onclick="selmood('+i+')"><div class="dmsw" style="background:'+m.c+';"></div><div class="dmn">'+m.n+"</div></div>";});h+="</div>";h+='<div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:10px;">PALETTE</div>';h+='<div style="display:flex;gap:6px;margin-bottom:18px;">';[moods[sm].c,"#F5F3EF","#1A1A1A","#DCDCDC","#FFFFFF"].forEach(function(c){h+='<div style="flex:1;height:28px;border-radius:6px;background:'+c+';border:1px solid #EBEBEB;"></div>';});h+="</div>";h+='<div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:10px;">MATERIALS</div>';["Honed limestone","Brushed brass","Raw linen","White oak"].forEach(function(m){h+='<div style="font-size:11px;color:#AAA;padding:6px 0;border-bottom:1px solid #F5F5F5;font-weight:300;">'+m+"</div>";});}
-else{h+='<div class="dstitle">STEP 04 — DESIGN</div>';h+='<div class="dshead">Your Spaces, Designed</div>';h+='<div class="dsdesc">AI-generated renders for each room, following your layout and mood selections.</div>';h+='<div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:10px;">SELECT ROOM</div>';h+='<div style="display:flex;flex-wrap:wrap;margin-bottom:20px;">';rooms.forEach(function(r,i){h+='<div class="dtag '+(sr===i?"sel":"")+'" onclick="selroom('+i+')">'+r+"</div>";});h+="</div>";h+='<div style="padding:14px;background:#FAFAFA;border-radius:10px;border:1px solid #F0F0F0;margin-bottom:16px;">';h+='<div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:10px;">DESIGN SPECS</div>';
-[["Style",moods[sm].n],["Layout",layouts[sl].n],["Renders","2 per room"],["Format","4K Photorealistic"]].forEach(function(r){h+='<div class="drow"><span style="font-size:11px;color:#AAA;font-weight:300;">'+r[0]+"</span><span style="font-size:11px;color:#1A1A1A;font-weight:400;">"+r[1]+"</span></div>";});h+="</div>";
-h+='<div style="padding:16px;border:1px solid #EBEBEB;border-radius:10px;">';h+='<div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:6px;">READY TO BUILD?</div>';h+='<div style="font-size:11px;color:#AAA;line-height:1.8;margin-bottom:12px;font-weight:300;">Connect with our architect for a personalised consultation.</div>';h+='<button style="width:100%;padding:10px;background:#1A1A1A;border:none;border-radius:7px;font-size:10px;letter-spacing:.15em;color:#FFF;cursor:pointer;font-family:Inter,sans-serif;">BOOK AN EXPERT →</button>';h+="</div>";}
-el.innerHTML=h;}
-function rendright(){var el=document.getElementById("dright"),h="";
-if(cs===0){h+='<div class="dpvl">FLOOR PLAN ANALYSIS</div>';h+='<svg viewBox="0 0 480 320" style="width:100%;border-radius:12px;border:1px solid #EBEBEB;background:#FFF;">';for(var i=0;i<9;i++)h+='<line x1="'+(52+i*44)+'" y1="28" x2="'+(52+i*44)+'" y2="292" stroke="#F5F5F5" stroke-width="1"/>';for(var i=0;i<7;i++)h+='<line x1="52" y1="'+(28+i*44)+'" x2="428" y2="'+(28+i*44)+'" stroke="#F5F5F5" stroke-width="1"/>';h+='<rect x="64" y="38" width="352" height="252" fill="none" stroke="#E0E0E0" stroke-width="1.5"/><rect x="64" y="38" width="210" height="155" fill="#FAFAFA" stroke="#EBEBEB" stroke-width="1"/><text x="169" y="112" fill="#C8C8C8" font-size="10" text-anchor="middle" font-family="Inter" letter-spacing="2">LIVING ROOM</text><text x="169" y="126" fill="#DCDCDC" font-size="9" text-anchor="middle" font-family="Inter">14' x 12'</text><rect x="64" y="193" width="210" height="97" fill="#F8F8F8" stroke="#EBEBEB" stroke-width="1"/><text x="169" y="242" fill="#C8C8C8" font-size="10" text-anchor="middle" font-family="Inter" letter-spacing="2">BEDROOM</text><rect x="274" y="38" width="142" height="115" fill="#F5F8F5" stroke="#EBEBEB" stroke-width="1"/><text x="345" y="96" fill="#C8C8C8" font-size="10" text-anchor="middle" font-family="Inter" letter-spacing="2">DINING</text><rect x="274" y="153" width="142" height="77" fill="#FAFAFA" stroke="#EBEBEB" stroke-width="1"/><text x="345" y="193" fill="#C8C8C8" font-size="10" text-anchor="middle" font-family="Inter" letter-spacing="2">KITCHEN</text><rect x="274" y="230" width="85" height="60" fill="#F8F8F8" stroke="#EBEBEB" stroke-width="1"/><text x="316" y="262" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter">BATH</text><text x="446" y="50" fill="#1A1A1A" font-size="12" text-anchor="middle" font-family="Inter" font-weight="500">N</text><line x1="446" y1="55" x2="446" y2="68" stroke="#DCDCDC" stroke-width="1"/><line x1="64" y1="88" x2="416" y2="88" stroke="#C4956A" stroke-width="0.5" opacity="0.4"/><text x="412" y="85" fill="#C4956A" font-size="8" text-anchor="end" font-family="Inter" opacity="0.7">SCANNING...</text><line x1="64" y1="302" x2="416" y2="302" stroke="#E0E0E0" stroke-width="0.5"/><text x="240" y="315" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter">24 ft</text></svg>';}
-else if(cs===1){var svgOpts=['<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#FFF" stroke="#E8E8E8" stroke-width="1.5"/><rect x="76" y="148" width="128" height="52" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="76" y="140" width="128" height="16" rx="4" fill="#EBEBEB" stroke="#E0E0E0" stroke-width="0.5"/><text x="140" y="178" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter">SOFA</text><rect x="92" y="208" width="84" height="38" rx="4" fill="#F8F8F8" stroke="#E0E0E0" stroke-width="0.5"/><rect x="76" y="44" width="158" height="22" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><text x="155" y="59" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter">TV UNIT</text><rect x="220" y="152" width="42" height="42" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="272" y="152" width="42" height="42" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="318" y="44" width="86" height="88" rx="4" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><circle cx="361" cy="88" r="26" fill="none" stroke="#E0E8E0" stroke-width="0.5"/><text x="361" y="92" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter">DINING</text><text x="240" y="290" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">VASTU ALIGNED</text></svg>','<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#FFF" stroke="#E8E8E8" stroke-width="1.5"/><rect x="76" y="168" width="168" height="52" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="228" y="132" width="52" height="88" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="298" y="152" width="106" height="62" rx="4" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><text x="351" y="188" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter">ISLAND</text><circle cx="308" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><circle cx="336" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><circle cx="364" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><text x="240" y="290" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">OPEN CONCEPT</text></svg>','<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#FFF" stroke="#E8E8E8" stroke-width="1.5"/><line x1="240" y1="32" x2="240" y2="268" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="4,4"/><text x="148" y="52" fill="#DCDCDC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="2">LOUNGE</text><text x="352" y="52" fill="#DCDCDC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="2">DINING</text><rect x="68" y="88" width="144" height="52" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="68" y="150" width="52" height="80" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="160" y="150" width="52" height="80" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="262" y="68" width="114" height="188" rx="6" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><circle cx="290" cy="106" r="12" fill="#FFF" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="350" cy="106" r="12" fill="#FFF" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="290" cy="158" r="12" fill="#FFF" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="350" cy="158" r="12" fill="#FFF" stroke="#E0E8E0" stroke-width="0.5"/><text x="240" y="290" fill="#C8C8C8" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">ZONED LIVING</text></svg>'];h+='<div class="dpvl">LAYOUT OPTION '+String.fromCharCode(65+sl)+"</div>";h+='<div style="border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#FFF;">'+svgOpts[sl]+"</div>";}
-else if(cs===2){var m=moods[sm];h+='<div class="dpvl">MOOD BOARD — '+m.n.toUpperCase()+"</div>";h+='<div style="border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#FFF;">';h+='<div style="height:140px;background:'+m.c+';"></div>';h+='<div style="padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">';h+='<div><div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:10px;">MATERIALS</div>';["Honed limestone","Brushed brass","Raw linen","White oak"].forEach(function(t){h+='<div style="font-size:10px;color:#AAA;padding:5px 0;border-bottom:1px solid #F5F5F5;font-weight:300;">'+t+"</div>";});h+="</div>";h+='<div><div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:10px;">PALETTE</div><div style="display:flex;gap:4px;margin-bottom:12px;">';[m.c,"#F5F3EF","#1A1A1A","#DCDCDC"].forEach(function(c){h+='<div style="flex:1;height:24px;border-radius:4px;background:'+c+';border:1px solid #EBEBEB;"></div>';});h+='</div><div style="font-size:9px;color:#C8C8C8;letter-spacing:.2em;margin-bottom:8px;">LIGHTING</div><div style="font-size:10px;color:#AAA;padding:3px 0;font-weight:300;">Warm 2700K ambient</div><div style="font-size:10px;color:#AAA;padding:3px 0;font-weight:300;">Accent task spots</div></div></div></div>';}
-else{var rsn=rooms[sr];h+='<div class="dpvl">'+rsn.toUpperCase()+' — '+moods[sm].n.toUpperCase()+"</div>";h+='<div style="border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#FFF;padding:20px;">';h+='<svg viewBox="0 0 460 280" style="width:100%;"><polygon points="230,35 400,128 230,222 60,128" fill="#F8F8F8" stroke="#E8E8E8" stroke-width="1.5"/><polygon points="60,35 230,35 230,222 60,128" fill="#F2F2F2" stroke="#E8E8E8" stroke-width="1"/><line x1="60" y1="35" x2="230" y2="35" stroke="#E0E0E0" stroke-width="1"/><polygon points="96,155 175,111 194,121 114,165" fill="#E8E8E8" stroke="#DCDCDC" stroke-width="0.5"/><polygon points="96,145 175,101 175,111 96,155" fill="#EBEBEB" stroke="#DCDCDC" stroke-width="0.5"/><line x1="228" y1="216" x2="228" y2="90" stroke="#DCDCDC" stroke-width="1.5"/></svg>';h+='<div style="display:flex;gap:8px;margin-top:14px;">';["Natural Light","Evening Mood"].forEach(function(v,i){h+='<div style="flex:1;height:52px;border-radius:8px;background:'+(i===0?"#F8F8F8":"#FFF")+';border:1px solid '+(i===0?"#1A1A1A":"#EBEBEB")+';display:flex;align-items:center;justify-content:center;cursor:pointer;"><span style="font-size:9px;color:'+(i===0?"#1A1A1A":"#C8C8C8")+';font-family:Inter;letter-spacing:.15em;font-weight:'+(i===0?"500":"400")+';">'+v+"</span></div>";});h+="</div></div>";}
-el.innerHTML=h;}
+function mk(tag,cls,txt,sty){var e=document.createElement(tag);if(cls)e.className=cls;if(txt)e.textContent=txt;if(sty)e.style.cssText=sty;return e;}
+function rendsteps(){
+  var c=document.getElementById("dsteps");c.innerHTML="";
+  ["UPLOAD","LAYOUT","MOOD","DESIGN"].forEach(function(l,i){
+    var d=mk("div","dot "+(i<cs?"d":i===cs?"a":""),i<cs?"✓":""+(i+1));c.appendChild(d);
+    if(i<3){var ln=mk("div","dline "+(i<cs?"d":""));c.appendChild(ln);}
+  });
+}
+function rendleft(){
+  var el=document.getElementById("dleft");el.innerHTML="";
+  if(cs===0){
+    el.appendChild(mk("div","dtitle","STEP 01 — UPLOAD"));
+    el.appendChild(mk("div","dhead","Your Floor Plan"));
+    el.appendChild(mk("div","ddesc","Upload your floor plan or sketch. AI reads dimensions, identifies rooms, and maps spatial logic before any design begins."));
+    var up=mk("div","dup");up.innerHTML='<div class="dupico">⌗</div><div style="font-size:12px;color:#AAA;font-weight:300;">Drop floor plan here<br>or click to upload</div><div style="font-size:10px;color:#DCDCDC;margin-top:6px;font-weight:300;">PDF · PNG · JPG · DWG</div>';up.onclick=function(){gostep(1);};el.appendChild(up);
+    el.appendChild(mk("div","dtitle","WHAT WE DETECT","margin:18px 0 10px;"));
+    ["Room dimensions & proportions","Vastu directions & orientation","Natural light entry points","Structural walls & openings"].forEach(function(t){
+      var row=mk("div","","","display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid #F5F5F5;");
+      var dot=mk("div","","","width:4px;height:4px;border-radius:50%;background:#CCC;flex-shrink:0;");
+      var sp=mk("span","",t,"font-size:11px;color:#AAA;font-weight:300;");
+      row.appendChild(dot);row.appendChild(sp);el.appendChild(row);
+    });
+  } else if(cs===1){
+    el.appendChild(mk("div","dtitle","STEP 02 — LAYOUT"));
+    el.appendChild(mk("div","dhead","Choose Your Layout"));
+    el.appendChild(mk("div","ddesc","Three arrangements generated for your space. Each follows Vastu, ergonomic standards, and optimal flow."));
+    layouts.forEach(function(l,i){
+      var opt=mk("div","dopt "+(sl===i?"sel":""));
+      opt.onclick=(function(idx){return function(){sellay(idx);};})(i);
+      var badge=mk("div","doptb",String.fromCharCode(65+i));
+      var info=mk("div");var nm=mk("div","doptn",l[0]);var desc=mk("div","doptd",l[1]);
+      info.appendChild(nm);info.appendChild(desc);
+      var chk=mk("div","doptc","✓");
+      opt.appendChild(badge);opt.appendChild(info);opt.appendChild(chk);el.appendChild(opt);
+    });
+    var note=mk("div","dnote");
+    note.innerHTML='<div style="font-size:9px;color:#CCC;letter-spacing:.2em;margin-bottom:8px;">ARCHITECT'S NOTE</div><div style="font-size:11px;color:#AAA;line-height:1.8;font-style:italic;font-weight:300;">'+notes[sl]+"</div>";
+    el.appendChild(note);
+  } else if(cs===2){
+    el.appendChild(mk("div","dtitle","STEP 03 — MOOD"));
+    el.appendChild(mk("div","dhead","Select Your Aesthetic"));
+    el.appendChild(mk("div","ddesc","Define the material palette and lighting tone applied across all rooms."));
+    var mg=mk("div","dmoods");
+    moods.forEach(function(m,i){
+      var md=mk("div","dmood "+(sm===i?"sel":""));
+      md.onclick=(function(idx){return function(){selmood(idx);};})(i);
+      var sw=mk("div","dmsw","","background:"+m[1]+";");
+      var nm=mk("div","dmn",m[0]);
+      md.appendChild(sw);md.appendChild(nm);mg.appendChild(md);
+    });
+    el.appendChild(mg);
+    el.appendChild(mk("div","dtitle","PALETTE","margin-bottom:10px;"));
+    var pal=mk("div","","","display:flex;gap:6px;margin-bottom:18px;");
+    [moods[sm][1],"#F5F3EF","#1A1A1A","#DCDCDC","#FFF"].forEach(function(c){pal.appendChild(mk("div","","","flex:1;height:28px;border-radius:6px;background:"+c+";border:1px solid #EBEBEB;"));});
+    el.appendChild(pal);
+    el.appendChild(mk("div","dtitle","MATERIALS","margin-bottom:10px;"));
+    ["Honed limestone","Brushed brass","Raw linen","White oak"].forEach(function(m){el.appendChild(mk("div","",m,"font-size:11px;color:#AAA;padding:6px 0;border-bottom:1px solid #F5F5F5;font-weight:300;"));});
+  } else {
+    el.appendChild(mk("div","dtitle","STEP 04 — DESIGN"));
+    el.appendChild(mk("div","dhead","Your Spaces, Designed"));
+    el.appendChild(mk("div","ddesc","AI-generated renders for each room, following your layout and mood selections."));
+    el.appendChild(mk("div","dtitle","SELECT ROOM","margin-bottom:10px;"));
+    var rw=mk("div","","","display:flex;flex-wrap:wrap;margin-bottom:20px;");
+    rooms.forEach(function(r,i){
+      var tg=mk("div","dtag "+(sr===i?"sel":""),r);
+      tg.onclick=(function(idx){return function(){selroom(idx);};})(i);
+      rw.appendChild(tg);
+    });
+    el.appendChild(rw);
+    var specs=mk("div","","","padding:14px;background:#FAFAFA;border-radius:10px;border:1px solid #F0F0F0;margin-bottom:16px;");
+    specs.appendChild(mk("div","dtitle","DESIGN SPECS","margin-bottom:10px;"));
+    [["Style",moods[sm][0]],["Layout",layouts[sl][0]],["Renders","2 per room"],["Format","4K Photorealistic"]].forEach(function(r){
+      var row=mk("div","drow");
+      row.appendChild(mk("span","",r[0],"font-size:11px;color:#AAA;font-weight:300;"));
+      row.appendChild(mk("span","",r[1],"font-size:11px;color:#1A1A1A;font-weight:500;"));
+      specs.appendChild(row);
+    });
+    el.appendChild(specs);
+    var cta=mk("div","","","padding:16px;border:1px solid #EBEBEB;border-radius:10px;");
+    cta.appendChild(mk("div","dtitle","READY TO BUILD?","margin-bottom:6px;"));
+    cta.appendChild(mk("div","","Connect with our architect for a personalised consultation.","font-size:11px;color:#AAA;line-height:1.8;margin-bottom:12px;font-weight:300;"));
+    var btn=mk("button","","→ BOOK AN EXPERT","width:100%;padding:10px;background:#1A1A1A;border:none;border-radius:7px;font-size:10px;letter-spacing:.15em;color:#fff;cursor:pointer;font-family:Inter,sans-serif;");
+    cta.appendChild(btn);el.appendChild(cta);
+  }
+}
+function rendright(){
+  var el=document.getElementById("dright");el.innerHTML="";
+  var pvl=mk("div","dpvl","");el.appendChild(pvl);
+  if(cs===0){
+    pvl.textContent="FLOOR PLAN ANALYSIS";
+    var svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
+    svg.setAttribute("viewBox","0 0 480 320");
+    svg.style.cssText="width:100%;border-radius:12px;border:1px solid #EBEBEB;background:#fff;";
+    svg.innerHTML='<defs/>';
+    function addRect(x,y,w,h,fill,stroke){var r=document.createElementNS("http://www.w3.org/2000/svg","rect");r.setAttribute("x",x);r.setAttribute("y",y);r.setAttribute("width",w);r.setAttribute("height",h);r.setAttribute("fill",fill);r.setAttribute("stroke",stroke);r.setAttribute("stroke-width","1");svg.appendChild(r);}
+    function addTxt(x,y,txt,col,sz){var t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("x",x);t.setAttribute("y",y);t.setAttribute("fill",col||"#CCC");t.setAttribute("font-size",sz||"10");t.setAttribute("text-anchor","middle");t.setAttribute("font-family","Inter");t.setAttribute("letter-spacing","2");t.textContent=txt;svg.appendChild(t);}
+    for(var i=0;i<9;i++){var l=document.createElementNS("http://www.w3.org/2000/svg","line");l.setAttribute("x1",52+i*44);l.setAttribute("y1",28);l.setAttribute("x2",52+i*44);l.setAttribute("y2",292);l.setAttribute("stroke","#F5F5F5");l.setAttribute("stroke-width","1");svg.appendChild(l);}
+    for(var i=0;i<7;i++){var l=document.createElementNS("http://www.w3.org/2000/svg","line");l.setAttribute("x1",52);l.setAttribute("y1",28+i*44);l.setAttribute("x2",428);l.setAttribute("y2",28+i*44);l.setAttribute("stroke","#F5F5F5");l.setAttribute("stroke-width","1");svg.appendChild(l);}
+    addRect(64,38,352,252,"none","#E0E0E0");
+    addRect(64,38,210,155,"#FAFAFA","#EBEBEB");addTxt(169,112,"LIVING ROOM");addTxt(169,126,"14' x 12'","#DCDCDC","9");
+    addRect(64,193,210,97,"#F8F8F8","#EBEBEB");addTxt(169,242,"BEDROOM");
+    addRect(274,38,142,115,"#F5F8F5","#EBEBEB");addTxt(345,96,"DINING");
+    addRect(274,153,142,77,"#FAFAFA","#EBEBEB");addTxt(345,193,"KITCHEN");
+    addRect(274,230,85,60,"#F8F8F8","#EBEBEB");addTxt(316,262,"BATH","#CCC","9");
+    addTxt(446,50,"N","#1A1A1A","12");
+    var scanLine=document.createElementNS("http://www.w3.org/2000/svg","line");scanLine.setAttribute("x1",64);scanLine.setAttribute("y1",88);scanLine.setAttribute("x2",416);scanLine.setAttribute("y2",88);scanLine.setAttribute("stroke","#C4956A");scanLine.setAttribute("stroke-width","0.5");scanLine.setAttribute("opacity","0.4");svg.appendChild(scanLine);
+    var scanTxt=document.createElementNS("http://www.w3.org/2000/svg","text");scanTxt.setAttribute("x",412);scanTxt.setAttribute("y",85);scanTxt.setAttribute("fill","#C4956A");scanTxt.setAttribute("font-size","8");scanTxt.setAttribute("text-anchor","end");scanTxt.setAttribute("font-family","Inter");scanTxt.setAttribute("opacity","0.7");scanTxt.textContent="SCANNING...";svg.appendChild(scanTxt);
+    addTxt(240,315,"24 ft","#CCC","9");
+    el.appendChild(svg);
+  } else if(cs===1){
+    pvl.textContent="LAYOUT OPTION "+String.fromCharCode(65+sl);
+    var svgHtml=[
+      '<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/><rect x="76" y="148" width="128" height="52" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="76" y="140" width="128" height="16" rx="4" fill="#EBEBEB" stroke="#E0E0E0" stroke-width="0.5"/><text x="140" y="178" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">SOFA</text><rect x="92" y="208" width="84" height="38" rx="4" fill="#F8F8F8" stroke="#E0E0E0" stroke-width="0.5"/><rect x="76" y="44" width="158" height="22" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><text x="155" y="59" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">TV UNIT</text><rect x="220" y="152" width="42" height="42" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="272" y="152" width="42" height="42" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="318" y="44" width="86" height="88" rx="4" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><circle cx="361" cy="88" r="26" fill="none" stroke="#E0E8E0" stroke-width="0.5"/><text x="361" y="92" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">DINING</text><text x="240" y="290" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">VASTU ALIGNED</text></svg>',
+      '<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/><rect x="76" y="168" width="168" height="52" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="228" y="132" width="52" height="88" rx="6" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="298" y="152" width="106" height="62" rx="4" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><text x="351" y="188" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter">ISLAND</text><circle cx="308" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><circle cx="336" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><circle cx="364" cy="148" r="8" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="0.5"/><text x="240" y="290" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">OPEN CONCEPT</text></svg>',
+      '<svg viewBox="0 0 480 300" style="width:100%;"><rect x="56" y="32" width="368" height="236" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/><line x1="240" y1="32" x2="240" y2="268" stroke="#F0F0F0" stroke-width="1" stroke-dasharray="4,4"/><text x="148" y="52" fill="#DDD" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="2">LOUNGE</text><text x="352" y="52" fill="#DDD" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="2">DINING</text><rect x="68" y="88" width="144" height="52" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="68" y="150" width="52" height="80" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="160" y="150" width="52" height="80" rx="4" fill="#F5F5F5" stroke="#E0E0E0" stroke-width="1"/><rect x="262" y="68" width="114" height="188" rx="6" fill="#F0F5F0" stroke="#E0E8E0" stroke-width="1"/><circle cx="290" cy="106" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="350" cy="106" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="290" cy="158" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><circle cx="350" cy="158" r="12" fill="#fff" stroke="#E0E8E0" stroke-width="0.5"/><text x="240" y="290" fill="#CCC" font-size="9" text-anchor="middle" font-family="Inter" letter-spacing="3">ZONED LIVING</text></svg>'
+    ];
+    var wrap=mk("div","","","border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;");
+    wrap.innerHTML=svgHtml[sl];el.appendChild(wrap);
+  } else if(cs===2){
+    var m=moods[sm];pvl.textContent="MOOD BOARD — "+m[0].toUpperCase();
+    var card=mk("div","","","border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;");
+    var swatch=mk("div","","","height:140px;background:"+m[1]+";");card.appendChild(swatch);
+    var body=mk("div","","","padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px;");
+    var col1=mk("div");col1.appendChild(mk("div","dtitle","MATERIALS","margin-bottom:10px;"));
+    ["Honed limestone","Brushed brass","Raw linen","White oak"].forEach(function(t){col1.appendChild(mk("div","",t,"font-size:10px;color:#AAA;padding:5px 0;border-bottom:1px solid #F5F5F5;font-weight:300;"));});
+    var col2=mk("div");col2.appendChild(mk("div","dtitle","PALETTE","margin-bottom:10px;"));
+    var pal=mk("div","","","display:flex;gap:4px;margin-bottom:12px;");
+    [m[1],"#F5F3EF","#1A1A1A","#DCDCDC"].forEach(function(c){pal.appendChild(mk("div","","","flex:1;height:24px;border-radius:4px;background:"+c+";border:1px solid #EBEBEB;"));});
+    col2.appendChild(pal);
+    col2.appendChild(mk("div","dtitle","LIGHTING","margin-bottom:8px;"));
+    col2.appendChild(mk("div","","Warm 2700K ambient","font-size:10px;color:#AAA;padding:3px 0;font-weight:300;"));
+    col2.appendChild(mk("div","","Accent task spots","font-size:10px;color:#AAA;padding:3px 0;font-weight:300;"));
+    body.appendChild(col1);body.appendChild(col2);card.appendChild(body);el.appendChild(card);
+  } else {
+    var rsn=rooms[sr];pvl.textContent=rsn.toUpperCase()+" — "+moods[sm][0].toUpperCase();
+    var card=mk("div","","","border-radius:12px;border:1px solid #EBEBEB;overflow:hidden;background:#fff;padding:20px;");
+    card.innerHTML='<svg viewBox="0 0 460 280" style="width:100%;"><polygon points="230,35 400,128 230,222 60,128" fill="#F8F8F8" stroke="#E8E8E8" stroke-width="1.5"/><polygon points="60,35 230,35 230,222 60,128" fill="#F2F2F2" stroke="#E8E8E8" stroke-width="1"/><line x1="60" y1="35" x2="230" y2="35" stroke="#E0E0E0" stroke-width="1"/><polygon points="96,155 175,111 194,121 114,165" fill="#E8E8E8" stroke="#DDD" stroke-width="0.5"/><polygon points="96,145 175,101 175,111 96,155" fill="#EBEBEB" stroke="#DDD" stroke-width="0.5"/><line x1="228" y1="216" x2="228" y2="90" stroke="#DDD" stroke-width="1.5"/><ellipse cx="228" cy="90" rx="14" ry="7" fill="#C4956A" fill-opacity="0.1" stroke="#C4956A" stroke-width="0.8" stroke-opacity="0.3"/><rect x="290" y="36" width="10" height="88" rx="2" fill="#E8E8E8" stroke="#DDD" stroke-width="0.5"/><rect x="352" y="234" width="96" height="22" rx="4" fill="#F5F5F5" stroke="#EBEBEB" stroke-width="1"/><text x="400" y="249" fill="#CCC" font-size="8" text-anchor="middle" font-family="Inter" letter-spacing="2">RENDER 1/2</text></svg>';
+    var lv=mk("div","","","display:flex;gap:8px;margin-top:14px;");
+    ["Natural Light","Evening Mood"].forEach(function(v,i){
+      var btn=mk("div","","","flex:1;height:52px;border-radius:8px;background:"+(i===0?"#F8F8F8":"#fff")+";border:1px solid "+(i===0?"#1A1A1A":"#EBEBEB")+";display:flex;align-items:center;justify-content:center;cursor:pointer;");
+      btn.appendChild(mk("span","",v,"font-size:9px;color:"+(i===0?"#1A1A1A":"#CCC")+";font-family:Inter;letter-spacing:.15em;font-weight:"+(i===0?"500":"400")+";"));
+      lv.appendChild(btn);
+    });
+    card.appendChild(lv);el.appendChild(card);
+  }
+}
 function sellay(i){sl=i;rendleft();rendright();}
 function selmood(i){sm=i;rendleft();rendright();}
 function selroom(i){sr=i;rendleft();rendright();}
-function gostep(d){var n=cs+d;if(n<0||n>3)return;cs=n;rendsteps();rendleft();rendright();document.getElementById("dprev").style.opacity=cs===0?"0.3":"1";document.getElementById("dprog").textContent="STEP "+(cs+1)+" OF 4";document.getElementById("dnext").textContent=cs===3?"DOWNLOAD ↓":"CONTINUE →";}
+function gostep(d){
+  var n=cs+d;if(n<0||n>3)return;cs=n;
+  rendsteps();rendleft();rendright();
+  document.getElementById("dprev").style.opacity=cs===0?"0.3":"1";
+  document.getElementById("dprog").textContent="STEP "+(cs+1)+" OF 4";
+  document.getElementById("dnext").textContent=cs===3?"DOWNLOAD ↓":"CONTINUE →";
+}
 rendsteps();rendleft();rendright();
 document.getElementById("dprev").style.opacity="0.3";
 </script>
